@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\UserLib\\UserLib.csproj",
+      "projectUniqueName": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\UserLib\\UserLib.csproj",
       "projectName": "UserLib",
-      "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\UserLib\\UserLib.csproj",
+      "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\UserLib\\UserLib.csproj",
       "packagesPath": "C:\\Users\\Ohhey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\UserLib\\obj\\",
+      "outputPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\UserLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ohhey\\AppData\\Roaming\\NuGet\\NuGet.Config",

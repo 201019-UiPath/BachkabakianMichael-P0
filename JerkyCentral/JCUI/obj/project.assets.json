@@ -1085,11 +1085,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCUI\\JCUI.csproj",
+      "projectUniqueName": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCUI\\JCUI.csproj",
       "projectName": "JCUI",
-      "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCUI\\JCUI.csproj",
+      "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCUI\\JCUI.csproj",
       "packagesPath": "C:\\Users\\Ohhey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCUI\\obj\\",
+      "outputPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ohhey\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1105,11 +1105,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCDB\\JCDB.csproj": {
-              "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCDB\\JCDB.csproj"
+            "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCDB\\JCDB.csproj": {
+              "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCDB\\JCDB.csproj"
             },
-            "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCLib\\JCLib.csproj": {
-              "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCLib\\JCLib.csproj"
+            "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCLib\\JCLib.csproj": {
+              "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCLib\\JCLib.csproj"
             }
           }
         }

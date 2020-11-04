@@ -1557,11 +1557,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCDB\\JCDB.csproj",
+      "projectUniqueName": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCDB\\JCDB.csproj",
       "projectName": "JCDB",
-      "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCDB\\JCDB.csproj",
+      "projectPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCDB\\JCDB.csproj",
       "packagesPath": "C:\\Users\\Ohhey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-code\\JerkyCentral\\JCDB\\obj\\",
+      "outputPath": "C:\\Users\\Ohhey\\Desktop\\Revature_Workspace\\BachkabakianMichael-P0\\JerkyCentral\\JCDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ohhey\\AppData\\Roaming\\NuGet\\NuGet.Config",
