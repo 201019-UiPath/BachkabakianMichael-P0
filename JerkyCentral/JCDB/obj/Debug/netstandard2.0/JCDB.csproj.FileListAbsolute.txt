@@ -1,0 +1,9 @@
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\bin\Debug\netstandard2.0\JCDB.deps.json
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\bin\Debug\netstandard2.0\JCDB.dll
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\bin\Debug\netstandard2.0\JCDB.pdb
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\obj\Debug\netstandard2.0\JCDB.AssemblyInfoInputs.cache
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\obj\Debug\netstandard2.0\JCDB.AssemblyInfo.cs
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\obj\Debug\netstandard2.0\JCDB.csproj.CoreCompileInputs.cache
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\obj\Debug\netstandard2.0\JCDB.dll
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\obj\Debug\netstandard2.0\JCDB.pdb
+C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\JCDB\obj\Debug\netstandard2.0\JCDB.csprojAssemblyReference.cache
