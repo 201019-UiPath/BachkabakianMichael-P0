@@ -1,9 +1,0 @@
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\bin\Debug\netstandard2.0\UserLib.deps.json
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\bin\Debug\netstandard2.0\UserLib.dll
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\bin\Debug\netstandard2.0\UserLib.pdb
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\obj\Debug\netstandard2.0\UserLib.AssemblyInfoInputs.cache
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\obj\Debug\netstandard2.0\UserLib.AssemblyInfo.cs
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\obj\Debug\netstandard2.0\UserLib.csproj.CoreCompileInputs.cache
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\obj\Debug\netstandard2.0\UserLib.dll
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\obj\Debug\netstandard2.0\UserLib.pdb
-C:\Users\Ohhey\Desktop\Revature_Workspace\BachkabakianMichael-code\JerkyCentral\UserLib\obj\Debug\netstandard2.0\UserLib.csprojAssemblyReference.cache

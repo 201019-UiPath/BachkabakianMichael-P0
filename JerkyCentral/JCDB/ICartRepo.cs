@@ -7,7 +7,7 @@ namespace JCDB
     /// </summary>
     public interface ICartRepo
     {
-        void AddCartAsync(Cart cart);
+        void AddCart(Cart cart);
         void UpdateCart(Cart cart);
         void DeleteCart(Cart cart);
         Cart GetCartById(int id);

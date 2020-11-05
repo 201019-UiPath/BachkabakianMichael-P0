@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using JCDB.Models;
 
 namespace JCDB
@@ -9,11 +8,11 @@ namespace JCDB
     /// </summary>
     public interface ICartLineRepo
     {
-        void AddCartLineAsync(CartLine cartLine);
+        void AddCartLine(CartLine cartLine);
         void UpdateCartLine(CartLine cartLine);
         void DeleteCartLine(CartLine cartLine);
         CartLine GetCartLineById(int id);
-        Task<List<CartLine>> GetAllCartLinesByCartIdAsync(int id);
+        List<CartLine> GetAllCartLinesByCartId(int id);
          
     }
 }

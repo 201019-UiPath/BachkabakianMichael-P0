@@ -8,7 +8,7 @@ namespace JCDB
     /// </summary>
     public interface IInventoryRepo
     {
-        void AddInventoryAsync(Inventory inventory);
+        void AddInventory(Inventory inventory);
         void UpdateInventory(Inventory inventory);
         void DeleteInventory(Inventory inventory);
         Inventory GetInventoryById(int id);

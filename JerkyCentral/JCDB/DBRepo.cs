@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using JCDB.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -19,10 +18,10 @@ namespace JCDB
         /// CRUD Methods for my Brands
         /// </summary>
         /// <param name="brand"></param>
-        public void AddBrandAsync(Brand brand)
+        public void AddBrand(Brand brand)
         {
-            context.Brands.AddAsync(brand);
-            context.SaveChangesAsync();
+            context.Brands.Add(brand);
+            context.SaveChanges();
         }
 
         public void UpdateBrand(Brand brand)
@@ -47,19 +46,19 @@ namespace JCDB
             return (Brand) context.Brands.Single(x => x.BrandName == name);
         }
 
-        public Task<List<Brand>> GetAllBrandsAsync()
+        public List<Brand> GetAllBrands()
         {
-            return context.Brands.Select(x => x).ToListAsync();
+            return context.Brands.Select(x => x).ToList();
         }
 
         /// <summary>
         /// CRUD methods for my Categories
         /// </summary>
         /// <param name="category"></param>
-        public void AddCategoryAsync(Category category)
+        public void AddCategory(Category category)
         {
-            context.Categories.AddAsync(category);
-            context.SaveChangesAsync();
+            context.Categories.Add(category);
+            context.SaveChanges();
         }
 
         public void UpdateCategory(Category category)
@@ -84,19 +83,19 @@ namespace JCDB
             return (Category) context.Categories.Single(x => x.CategoryName == name);
         }
 
-        public Task<List<Category>> GetAllCategoriesAsync()
+        public List<Category> GetAllCategories()
         {
-            return context.Categories.Select(x => x).ToListAsync();
+            return context.Categories.Select(x => x).ToList();
         }
 
         /// <summary>
         /// CRUD methods for my Inventories
         /// </summary>
         /// <param name="inventory"></param>
-        public void AddInventoryAsync(Inventory inventory)
+        public void AddInventory(Inventory inventory)
         {
-            context.Inventories.AddAsync(inventory);
-            context.SaveChangesAsync();
+            context.Inventories.Add(inventory);
+            context.SaveChanges();
         }
 
         public void UpdateInventory(Inventory inventory)
@@ -133,10 +132,10 @@ namespace JCDB
         /// CRUD methods for my Locations
         /// </summary>
         /// <param name="location"></param>
-        public void AddLocationAsync(Location location)
+        public void AddLocation(Location location)
         {
-            context.Locations.AddAsync(location);
-            context.SaveChangesAsync();
+            context.Locations.Add(location);
+            context.SaveChanges();
         }
 
         public void UpdateLocation(Location location)
@@ -170,10 +169,10 @@ namespace JCDB
         /// CRUD methods for my OrderLines
         /// </summary>
         /// <param name="orderline"></param>
-        public void AddOrderLineAsync(OrderLine orderline)
+        public void AddOrderLine(OrderLine orderline)
         {
-            context.OrderLines.AddAsync(orderline);
-            context.SaveChangesAsync();
+            context.OrderLines.Add(orderline);
+            context.SaveChanges();
         }
 
         public void UpdateOrderLine(OrderLine orderLine)
@@ -193,19 +192,19 @@ namespace JCDB
             return (OrderLine) context.OrderLines.Single(x => x.OrderLineId == id);
         }
 
-        public Task<List<OrderLine>> GetAllOrderLinesAsync()
+        public List<OrderLine> GetAllOrderLines()
         {
-            return context.OrderLines.Select(x => x).ToListAsync();
+            return context.OrderLines.Select(x => x).ToList();
         }
 
         /// <summary>
         /// CRUD methods for my Orders
         /// </summary>
         /// <param name="order"></param>
-        public void AddOrderAsync(Order order)
+        public void AddOrder(Order order)
         {
-            context.Orders.AddAsync(order);
-            context.SaveChangesAsync();
+            context.Orders.Add(order);
+            context.SaveChanges();
         }
 
         public void UpdateOrder(Order order)
@@ -225,19 +224,19 @@ namespace JCDB
             return (Order) context.Orders.Single(x => x.OrderId == id);
         }
 
-        public Task<List<Order>> GetAllOrdersAsync()
+        public List<Order> GetAllOrders()
         {
-            return context.Orders.Select(x => x).ToListAsync();
+            return context.Orders.Select(x => x).ToList();
         }
 
         /// <summary>
         /// CRUD methods for my Products
         /// </summary>
         /// <param name="product"></param>
-        public void AddProductAsync(Product product)
+        public void AddProduct(Product product)
         {
-            context.Products.AddAsync(product);
-            context.SaveChangesAsync();
+            context.Products.Add(product);
+            context.SaveChanges();
         }
 
         public void UpdateProduct(Product product)
@@ -262,19 +261,19 @@ namespace JCDB
             return (Product) context.Products.Single(x => x.ProductName == name);
         }
 
-        public Task<List<Product>> GetAllProductsAsync()
+        public List<Product> GetAllProducts()
         {
-            return context.Products.Select(x => x).ToListAsync();
+            return context.Products.Select(x => x).ToList();
         }
 
         /// <summary>
         /// CRUD methods for my Users
         /// </summary>
         /// <param name="user"></param>
-        public void AddUserAsync(User user)
+        public void AddUser(User user)
         {
-            context.Users.AddAsync(user);
-            context.SaveChangesAsync();
+            context.Users.Add(user);
+            context.SaveChanges();
         }
 
         public void UpdateUser(User user)
@@ -304,19 +303,19 @@ namespace JCDB
             return (User) context.Users.Single(x => x.ManagerStatus == true);
         }
 
-        public Task<List<User>> GetAllUsersAsync()
+        public List<User> GetAllUsers()
         {
-            return context.Users.Select(x => x).ToListAsync();
+            return context.Users.Select(x => x).ToList();
         }
 
         /// <summary>
         /// CRUD methods for my Carts
         /// </summary>
         /// <param name="cart"></param>
-        public void AddCartAsync(Cart cart)
+        public void AddCart(Cart cart)
         {
-            context.Carts.AddAsync(cart);
-            context.SaveChangesAsync();
+            context.Carts.Add(cart);
+            context.SaveChanges();
         }
 
         public void UpdateCart(Cart cart)
@@ -345,10 +344,10 @@ namespace JCDB
         /// CRUD methods for CartLines
         /// </summary>
         /// <param name="cartLine"></param>
-        public void AddCartLineAsync(CartLine cartLine)
+        public void AddCartLine(CartLine cartLine)
         {
-            context.CartLines.AddAsync(cartLine);
-            context.SaveChangesAsync();
+            context.CartLines.Add(cartLine);
+            context.SaveChanges();
         }
 
         public void UpdateCartLine(CartLine cartLine)
@@ -368,9 +367,9 @@ namespace JCDB
             return (CartLine) context.CartLines.Single(x => x.CartLineId == id);
         }
 
-        public Task<List<CartLine>> GetAllCartLinesByCartIdAsync(int id)
+        public List<CartLine> GetAllCartLinesByCartId(int id)
         {
-            return context.CartLines.Select(x => x).ToListAsync();
+            return context.CartLines.Select(x => x).ToList();
         }
     }
 }

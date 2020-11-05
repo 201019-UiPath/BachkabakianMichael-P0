@@ -8,7 +8,7 @@ namespace JCDB
     /// </summary>
     public interface ILocationRepo
     {
-        void AddLocationAsync(Location location);
+        void AddLocation(Location location);
         void UpdateLocation(Location location);
         void DeleteLocation(Location location);
         Location GetLocationById(int id);
