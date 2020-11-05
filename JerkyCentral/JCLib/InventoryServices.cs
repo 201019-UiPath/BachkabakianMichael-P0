@@ -14,7 +14,7 @@ namespace JCLib
         }
         public void AddInventory(Inventory inventory)
         {
-            repo.AddInventoryAsync(inventory);
+            repo.AddInventory(inventory);
         }
         public void UpdateInventory(Inventory inventory)
         {

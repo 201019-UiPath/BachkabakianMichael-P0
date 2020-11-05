@@ -13,7 +13,7 @@ namespace JCLib
         }
         public void AddCart(Cart cart)
         {
-            repo.AddCartAsync(cart);
+            repo.AddCart(cart);
         }
         public void UpdateCart(Cart cart)
         {

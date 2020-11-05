@@ -1,6 +1,5 @@
 using JCDB;
 using JCDB.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace JCLib
@@ -15,7 +14,7 @@ namespace JCLib
         }
         public void AddBrand(Brand brand)
         {
-            repo.AddBrandAsync(brand);
+            repo.AddBrand(brand);
         }
         public void UpdateBrand(Brand brand)
         {
@@ -35,9 +34,9 @@ namespace JCLib
             Brand brand = repo.GetBrandByName(name);
             return brand;
         }
-        public Task<List<Brand>> GetAllBrands()
+        public List<Brand> GetAllBrands()
         {
-            Task<List<Brand>> brands = repo.GetAllBrandsAsync();
+            List<Brand> brands = repo.GetAllBrands();
             return brands;
         }
     }

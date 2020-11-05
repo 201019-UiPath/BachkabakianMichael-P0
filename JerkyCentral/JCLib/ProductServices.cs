@@ -1,6 +1,5 @@
 using JCDB;
 using JCDB.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace JCLib
@@ -15,7 +14,7 @@ namespace JCLib
         }
         public void AddProduct(Product product)
         {
-            repo.AddProductAsync(product);
+            repo.AddProduct(product);
         }
         public void UpdateProduct(Product product)
         {
@@ -35,9 +34,9 @@ namespace JCLib
             Product product = repo.GetProductByName(name);
             return product;
         }
-        public Task<List<Product>> GetAllProducts()
+        public List<Product> GetAllProducts()
         {
-            Task<List<Product>> products = repo.GetAllProductsAsync();
+            List<Product> products = repo.GetAllProducts();
             return products;
         }
     }

@@ -1,6 +1,5 @@
 using JCDB;
 using JCDB.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace JCLib
@@ -15,7 +14,7 @@ namespace JCLib
         }
         public void AddLocation(Location location)
         {
-            repo.AddLocationAsync(location);
+            repo.AddLocation(location);
         }
         public void UpdateLocation(Location location)
         {

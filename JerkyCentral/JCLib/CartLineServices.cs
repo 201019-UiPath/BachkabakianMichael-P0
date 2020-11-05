@@ -1,6 +1,5 @@
 using JCDB;
 using JCDB.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace JCLib
@@ -15,7 +14,7 @@ namespace JCLib
         }
         public void AddCartLine(CartLine cartLine)
         {
-            repo.AddCartLineAsync(cartLine);
+            repo.AddCartLine(cartLine);
         }
         public void UpdateCartLine(CartLine cartLine)
         {
@@ -30,9 +29,9 @@ namespace JCLib
             CartLine cartLine = repo.GetCartLineById(id);
             return cartLine;
         }
-        public Task<List<CartLine>> GetAllCartLines(int id)
+        public List<CartLine> GetAllCartLines(int id)
         {
-            Task<List<CartLine>> cartLines = repo.GetAllCartLinesByCartIdAsync(id);
+            List<CartLine> cartLines = repo.GetAllCartLinesByCartId(id);
             return cartLines;
         }
     }

@@ -1,6 +1,5 @@
 using JCDB;
 using JCDB.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace JCLib
@@ -15,7 +14,7 @@ namespace JCLib
         }
         public void AddUser(User user)
         {
-            repo.AddUserAsync(user);
+            repo.AddUser(user);
         }
         public void UpdateUser(User user)
         {
@@ -40,9 +39,9 @@ namespace JCLib
             User user = repo.GetUserByManagerStatus(status);
             return user;
         }
-        public Task<List<User>> GetAllUsers()
+        public List<User> GetAllUsers()
         {
-            Task<List<User>> users = repo.GetAllUsersAsync();
+            List<User> users = repo.GetAllUsers();
             return users;
         }
     }

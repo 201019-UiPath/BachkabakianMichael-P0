@@ -1,6 +1,5 @@
 using JCDB;
 using JCDB.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace JCLib
@@ -15,7 +14,7 @@ namespace JCLib
         }
         public void AddOrder(Order order)
         {
-            repo.AddOrderAsync(order);
+            repo.AddOrder(order);
         }
         public void UpdateOrder(Order order)
         {
@@ -30,9 +29,9 @@ namespace JCLib
             Order order = repo.GetOrderById(id);
             return order;
         }
-        public Task<List<Order>> GetAllOrders()
+        public List<Order> GetAllOrders()
         {
-            Task<List<Order>> orders = repo.GetAllOrdersAsync();
+            List<Order> orders = repo.GetAllOrders();
             return orders;
         }
     }

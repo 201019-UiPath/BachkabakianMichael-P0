@@ -1,6 +1,5 @@
 using JCDB;
 using JCDB.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace JCLib
@@ -15,7 +14,7 @@ namespace JCLib
         }
         public void AddCategory(Category category)
         {
-            repo.AddCategoryAsync(category);
+            repo.AddCategory(category);
         }
         public void UpdateCategory(Category category)
         {
@@ -35,9 +34,9 @@ namespace JCLib
             Category category = repo.GetCategoryByName(name);
             return category;
         }
-        public Task<List<Category>> GetAllCategories()
+        public List<Category> GetAllCategories()
         {
-            Task<List<Category>> categories = repo.GetAllCategoriesAsync();
+            List<Category> categories = repo.GetAllCategories();
             return categories;
         }
     }
