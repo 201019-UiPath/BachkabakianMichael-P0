@@ -13,8 +13,6 @@ namespace JCDB.Models
         
         public string PassWord { get; set; }
 
-        public int CartId { get; set; }
-
         public Cart cart { get; set; }
 
         public List<Order> Order { get; set; }
