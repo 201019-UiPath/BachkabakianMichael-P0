@@ -8,7 +8,7 @@ namespace JCDB.Models
         
         public string CategoryName { get; set; }
 
-        public string ExpDate { get; set; }
+        public string ShelfLife { get; set; }
 
         public List <Product> Products { get; set; }
     }

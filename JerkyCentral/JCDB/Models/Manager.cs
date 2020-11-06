@@ -9,7 +9,7 @@ namespace JCDB.Models
 
         public string PassWord { get; set; }
 
-        public string Location { get; set; }
+        public int LocationId { get; set; }
 
         public Location Location { get; set; }
     }
