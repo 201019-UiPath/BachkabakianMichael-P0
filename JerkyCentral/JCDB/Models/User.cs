@@ -6,19 +6,19 @@ namespace JCDB.Models
 {
     public class User
     {
-        [Key]
+        
         public int UserID { get; set; }
 
-        [Column("Name")]
+        
         public string Name { get; set; }
 
-        [Column("Email")]
+        
         public string Email { get; set; }
 
-        [Column("Password")]
+        
         public string PassWord { get; set; }
 
-        [Column("ManagerStatus")]
+        
         public bool ManagerStatus { get; set; }
 
         public Cart cart { get; set; }

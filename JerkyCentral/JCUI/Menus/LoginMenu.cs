@@ -40,17 +40,17 @@ namespace JCUI.Menus
             do {
                 System.Console.WriteLine("You've arrived at JerkyCentral! Sign in or exit with the options below");
 
-                System.Console.WriteLine("Press [0] to Sign Into Your Account");
-                System.Console.WriteLine("Press [1] to Exit The Application");
+                System.Console.WriteLine("Press [1] to Sign Into Your Account");
+                System.Console.WriteLine("Press [2] to Exit The Application");
 
                 userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
-                    case "0":
+                    case "1":
                         User user = SignIn();
                         break;
-                    case "1":
+                    case "2":
                         System.Console.WriteLine("Come back soon!");
                         break;
                     default:
@@ -58,7 +58,7 @@ namespace JCUI.Menus
                         break;
                 }
 
-            } while(!userInput.Equals("1"));
+            } while(!userInput.Equals("2"));
         }
 
 

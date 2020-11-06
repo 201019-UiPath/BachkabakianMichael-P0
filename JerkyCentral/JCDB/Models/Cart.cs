@@ -6,10 +6,10 @@ namespace JCDB.Models
 {
     public class Cart
     {
-        [Key]
+        
         public int CartId { get; set; }
 
-        [ForeignKey("UserId")]
+        
         public int UserId { get; set; }
 
         public User user { get; set; }

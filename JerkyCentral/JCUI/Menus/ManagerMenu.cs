@@ -32,17 +32,17 @@ namespace JCUI.Menus
             do{
                 System.Console.WriteLine("Entered Manager Console. What would you like to do?");
 
-                System.Console.WriteLine("Press [0] to Replenish Inventory");
-                System.Console.WriteLine("Press [1] to Exit The Application");
+                System.Console.WriteLine("Press [1] to Replenish Inventory");
+                System.Console.WriteLine("Press [2] to Exit The Application");
 
                 userInput = Console.ReadLine();
 
                 switch(userInput)
                 {
-                    case "0":
+                    case "1":
                         replenishInventoryMenu.Start();
                         break;
-                    case "1":
+                    case "2":
                         System.Console.WriteLine("Come back soon!");
                         break;                   
                     default:
