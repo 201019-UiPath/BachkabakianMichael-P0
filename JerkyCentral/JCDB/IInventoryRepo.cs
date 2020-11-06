@@ -11,9 +11,7 @@ namespace JCDB
         void AddInventory(Inventory inventory);
         void UpdateInventory(Inventory inventory);
         void DeleteInventory(Inventory inventory);
-        Inventory GetInventoryById(int id);
         Inventory GetInventoryByLocationIdProductId(int locationId, int productId);
         List<Inventory> GetAllInventoryItemsByLocationId(int locationId);
-        List<Inventory> GetAllInventoryById(int id);
     }
 }

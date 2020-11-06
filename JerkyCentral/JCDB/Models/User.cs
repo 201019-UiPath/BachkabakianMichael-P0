@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JCDB.Models
 {
@@ -8,18 +6,14 @@ namespace JCDB.Models
     {
         
         public int UserID { get; set; }
-
         
         public string Name { get; set; }
-
         
         public string Email { get; set; }
-
         
         public string PassWord { get; set; }
 
-        
-        public bool ManagerStatus { get; set; }
+        public int CartId { get; set; }
 
         public Cart cart { get; set; }
 

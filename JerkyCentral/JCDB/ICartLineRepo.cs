@@ -11,7 +11,6 @@ namespace JCDB
         void AddCartLine(CartLine cartLine);
         void UpdateCartLine(CartLine cartLine);
         void DeleteCartLine(CartLine cartLine);
-        CartLine GetCartLineById(int id);
         List<CartLine> GetAllCartLinesByCartId(int id);
          
     }

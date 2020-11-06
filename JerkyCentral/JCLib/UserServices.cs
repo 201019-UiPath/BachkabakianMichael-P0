@@ -34,11 +34,6 @@ namespace JCLib
             User user = repo.GetUserByName(name);
             return user;
         }
-        public User GetUserByStatus(bool status)
-        {
-            User user = repo.GetUserByManagerStatus(status);
-            return user;
-        }
         public List<User> GetAllUsers()
         {
             List<User> users = repo.GetAllUsers();

@@ -24,11 +24,6 @@ namespace JCLib
         {
             repo.DeleteInventory(inventory);
         }
-        public Inventory GetInventoryById(int id)
-        {
-            Inventory inventory = repo.GetInventoryById(id);
-            return inventory;
-        }
         public Inventory GetInventoryByLocationIdProductId(int locationId, int productId) 
         {
              Inventory item = repo.GetInventoryByLocationIdProductId(locationId, productId);
@@ -38,11 +33,6 @@ namespace JCLib
         {
              List<Inventory> items = repo.GetAllInventoryItemsByLocationId(locationId);
              return items;
-        }
-        public List<Inventory> GetAllInventories(int id)
-        {
-            List<Inventory> inventories = repo.GetAllInventoryById(id);
-            return inventories;
         }
     }
 }

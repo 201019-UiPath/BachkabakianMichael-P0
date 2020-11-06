@@ -24,11 +24,6 @@ namespace JCLib
         {
             repo.DeleteOrderLine(orderLine);
         }
-        public OrderLine GetOrderLineById(int id)
-        {
-            OrderLine orderLine = repo.GetOrderLineByOrderLineId(id);
-            return orderLine;
-        }
         public List<OrderLine> GetAllOrderLines()
         {
             List<OrderLine> orderLines = repo.GetAllOrderLines();

@@ -24,11 +24,6 @@ namespace JCLib
         {
             repo.DeleteCartLine(cartLine);
         }
-        public CartLine GetCartLineById(int id)
-        {
-            CartLine cartLine = repo.GetCartLineById(id);
-            return cartLine;
-        }
         public List<CartLine> GetAllCartLines(int id)
         {
             List<CartLine> cartLines = repo.GetAllCartLinesByCartId(id);

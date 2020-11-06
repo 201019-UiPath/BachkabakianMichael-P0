@@ -83,28 +83,28 @@ namespace JCUI.Menus
                 {
                     validUser = user;
 
-                    if(user.ManagerStatus == true)
-                    {
-                        managerMenu = new ManagerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
-                        managerMenu.Start();
-                    } 
-                    if(user.ManagerStatus == false) 
-                    {
-                        customerMenu = new CustomerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
+                    // if(user.ManagerStatus == true)
+                    // {
+                    //     managerMenu = new ManagerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
+                    //     managerMenu.Start();
+                    // } 
+                    // if(user.ManagerStatus == false) 
+                    // {
+                    //     customerMenu = new CustomerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
                         
 
-                        try{
-                            cartServices.DeleteCart(cartServices.GetCartByUserId(validUser.UserID));
-                        } catch(InvalidOperationException) {}
-                        finally
-                        {
-                            Cart sessionCart = new Cart();
-                            sessionCart.UserId = validUser.UserID;
-                            cartServices.AddCart(sessionCart);
+                    //     try{
+                    //         cartServices.DeleteCart(cartServices.GetCartByUserId(validUser.UserID));
+                    //     } catch(InvalidOperationException) {}
+                    //     finally
+                    //     {
+                    //         Cart sessionCart = new Cart();
+                    //         sessionCart.UserId = validUser.UserID;
+                    //         cartServices.AddCart(sessionCart);
 
-                            customerMenu.Start();
-                        }
-                    }
+                    //         customerMenu.Start();
+                    //     }
+                    // }
 
                 }//more logging stuff and a return value around here
             } catch(ArgumentException){}return user;

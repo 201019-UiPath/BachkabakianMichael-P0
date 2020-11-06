@@ -110,22 +110,12 @@ namespace JCDB
             context.SaveChanges();
         }
 
-        public Inventory GetInventoryById(int id)
-        {
-            return (Inventory) context.Inventories.Single(x => x.InventoryId == id);
-        }
-
         public Inventory GetInventoryByLocationIdProductId(int locationId, int productId) {
             return (Inventory) context.Inventories.Single(x => x.LocationId == locationId && x.ProductId == productId);
         }
 
         public List<Inventory> GetAllInventoryItemsByLocationId(int locationId) {
         return context.Inventories.Select(x => x).Where(x => x.LocationId == locationId).ToList();
-        }
-
-        public List<Inventory> GetAllInventoryById(int id)
-        {
-            return context.Inventories.Where(x => x.InventoryId == id).ToList();
         }
 
         /// <summary>
@@ -185,11 +175,6 @@ namespace JCDB
         {
             context.OrderLines.Remove(orderLine);
             context.SaveChanges();
-        }
-
-        public OrderLine GetOrderLineByOrderLineId(int id)
-        {
-            return (OrderLine) context.OrderLines.Single(x => x.OrderLineId == id);
         }
 
         public List<OrderLine> GetAllOrderLines()
@@ -298,10 +283,11 @@ namespace JCDB
             return (User) context.Users.Single(x => x.Name == name);
         }
 
-        public User GetUserByManagerStatus(bool status)
-        {
-            return (User) context.Users.Single(x => x.ManagerStatus == true);
-        }
+        //old way of determining manager
+        // public User GetUserByManagerStatus(bool status)
+        // {
+        //     return (User) context.Users.Single(x => x.ManagerStatus == true);
+        // }
 
         public List<User> GetAllUsers()
         {
@@ -360,11 +346,6 @@ namespace JCDB
         {
             context.CartLines.Remove(cartLine);
             context.SaveChanges();
-        }
-
-        public CartLine GetCartLineById(int id)
-        {
-            return (CartLine) context.CartLines.Single(x => x.CartLineId == id);
         }
 
         public List<CartLine> GetAllCartLinesByCartId(int id)

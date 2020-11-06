@@ -11,7 +11,6 @@ namespace JCDB
         void AddOrderLine(OrderLine orderline);
         void UpdateOrderLine(OrderLine orderLine);
         void DeleteOrderLine(OrderLine orderLine);
-        OrderLine GetOrderLineByOrderLineId(int id);
         List<OrderLine> GetAllOrderLines();
     }
 }
