@@ -17,6 +17,7 @@ namespace JCDB
         public DbSet<User> Users { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartLine> CartLines { get; set; }
+        public DbSet<Manager> Managers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

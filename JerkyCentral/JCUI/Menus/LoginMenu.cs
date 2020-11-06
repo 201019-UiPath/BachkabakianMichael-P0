@@ -14,6 +14,7 @@ namespace JCUI.Menus
     {
         private string userInput;
         private User validUser; //user after their name and pw have been confirmed
+        private Manager validManager;
         private JCContext context;
         private IUserRepo userRepo;
         private ILocationRepo locationRepo;
@@ -38,19 +39,22 @@ namespace JCUI.Menus
         public void Start() 
         {
             do {
-                System.Console.WriteLine("You've arrived at JerkyCentral! Sign in or exit with the options below");
+                System.Console.WriteLine("You've arrived at JerkyCentral! Are you a Customer or a Manager?");
 
-                System.Console.WriteLine("Press [1] to Sign Into Your Account");
-                System.Console.WriteLine("Press [2] to Exit The Application");
+                System.Console.WriteLine("Press [1] to Sign In As A Customer");
+                System.Console.WriteLine("Press [2] to Sign In As A Manager");
+                System.Console.WriteLine("Press [3] to Exit The Application");
 
                 userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
                     case "1":
-                        User user = SignIn();
+                        // User user = CustomerSignIn();
                         break;
                     case "2":
+                        // Manager manager = ManagerSignIn();
+                    case "3":
                         System.Console.WriteLine("Come back soon!");
                         break;
                     default:
@@ -58,58 +62,59 @@ namespace JCUI.Menus
                         break;
                 }
 
-            } while(!userInput.Equals("2"));
+            } while(!userInput.Equals("3"));
         }
 
 
-        public User SignIn()
-        {
-            string name;
-            string password;
-            User user = new User();
+        // public User CustomerSignIn()
+        // {
+        //     string name;
+        //     string password;
+        //     User user = new User();
 
-            Console.WriteLine("Enter your name: ");
-            name = Console.ReadLine();
+        //     Console.WriteLine("Enter your name: ");
+        //     name = Console.ReadLine();
 
-            Console.WriteLine("Enter your password: ");
-            password = Console.ReadLine();
+        //     Console.WriteLine("Enter your password: ");
+        //     password = Console.ReadLine();
 
-            try {
-                user = userServices.GetUserByName(name);
-                if(user.PassWord != password)
-                {
-                    throw new System.ArgumentException();
-                } else 
-                {
-                    validUser = user;
+        //     try {
+        //         user = userServices.GetUserByName(name);
+        //         if(user.PassWord != password)
+        //         {
+        //             throw new System.ArgumentException();
+        //         } else 
+        //         {
+        //             validUser = user;
 
-                    // if(user.ManagerStatus == true)
-                    // {
-                    //     managerMenu = new ManagerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
-                    //     managerMenu.Start();
-                    // } 
-                    // if(user.ManagerStatus == false) 
-                    // {
-                    //     customerMenu = new CustomerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
+        //             if(user.ManagerStatus == true)
+        //             {
+        //                 managerMenu = new ManagerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
+        //                 managerMenu.Start();
+        //             } 
+        //             if(user.ManagerStatus == false) 
+        //             {
+        //                 customerMenu = new CustomerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
                         
 
-                    //     try{
-                    //         cartServices.DeleteCart(cartServices.GetCartByUserId(validUser.UserID));
-                    //     } catch(InvalidOperationException) {}
-                    //     finally
-                    //     {
-                    //         Cart sessionCart = new Cart();
-                    //         sessionCart.UserId = validUser.UserID;
-                    //         cartServices.AddCart(sessionCart);
+        //                 try{
+        //                     cartServices.DeleteCart(cartServices.GetCartByUserId(validUser.UserID));
+        //                 } catch(InvalidOperationException) {}
+        //                 finally
+        //                 {
+        //                     Cart sessionCart = new Cart();
+        //                     sessionCart.UserId = validUser.UserID;
+        //                     cartServices.AddCart(sessionCart);
 
-                    //         customerMenu.Start();
-                    //     }
-                    // }
+        //                     customerMenu.Start();
+        //                 }
+        //             }
 
-                }//more logging stuff and a return value around here
-            } catch(ArgumentException){}return user;
+        //         }//more logging stuff and a return value around here
+        //     } catch(ArgumentException){}return user;
 
-        } 
+            
+        
 
     }
 }

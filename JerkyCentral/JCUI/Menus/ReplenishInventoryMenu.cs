@@ -12,7 +12,7 @@ namespace JCUI.Menus
         private Product selectedProduct;
         private int selectedLocationId;
         private Inventory selectedItem;
-        private User validUser;
+        private Manager validManager;
         private JCContext context;
         private ILocationRepo locationRepo;
         private LocationServices locationServices;
@@ -21,9 +21,9 @@ namespace JCUI.Menus
         private IProductRepo productRepo;
         private ProductServices productServices;
 
-        public ReplenishInventoryMenu(User user, JCContext context, ILocationRepo locationRepo, IInventoryRepo inventoryRepo, IProductRepo productRepo) 
+        public ReplenishInventoryMenu(Manager manager, JCContext context, ILocationRepo locationRepo, IInventoryRepo inventoryRepo, IProductRepo productRepo) 
         {
-            this.validUser = user;
+            this.validManager = manager;
             this.context = context;
             this.locationRepo = locationRepo;
             this.inventoryRepo = inventoryRepo;

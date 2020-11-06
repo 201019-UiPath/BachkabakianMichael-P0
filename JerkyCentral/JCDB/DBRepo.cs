@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JCDB
 {
-    public class DBRepo : IBrandRepo, ICategoryRepo, IInventoryRepo, ILocationRepo, IOrderLineRepo, IOrderRepo, IProductRepo, IUserRepo, ICartRepo, ICartLineRepo
+    public class DBRepo : IBrandRepo, ICategoryRepo, IInventoryRepo, ILocationRepo, IOrderLineRepo, IOrderRepo, IProductRepo, IUserRepo, ICartRepo, ICartLineRepo , IManagerRepo
     {
         private JCContext context;
 
@@ -351,6 +351,43 @@ namespace JCDB
         public List<CartLine> GetAllCartLinesByCartId(int id)
         {
             return context.CartLines.Select(x => x).ToList();
+        }
+        
+        /// <summary>
+        /// CRUD methods for managers
+        /// </summary>
+        /// <param name="manager"></param>
+        public void AddManager(Manager manager)
+        {
+            context.Managers.Add(manager);
+            context.SaveChanges();
+        }
+
+        public void UpdateManager(Manager manager)
+        {
+            context.Managers.Update(manager);
+            context.SaveChanges();
+        }
+
+        public void DeleteManager(Manager manager)
+        {
+            context.Managers.Remove(manager);
+            context.SaveChanges();
+        }
+
+        public Manager GetManagerById(int id)
+        {
+            return (Manager) context.Managers.Single(x => x.ManagerID == id);
+        }
+
+        public Manager GetManagerByName(string name)
+        {
+            return (Manager) context.Managers.Single(x => x.Name == name);
+        }
+
+        public List<Manager> GetAllManagers()
+        {
+            return context.Managers.Select(x => x).ToList();
         }
     }
 }
