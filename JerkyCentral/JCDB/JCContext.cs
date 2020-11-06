@@ -31,5 +31,17 @@ namespace JCDB
                 optionsBuilder.UseNpgsql(connectionString);
             }
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CartLine>()
+            .HasKey(cl => new { cl.CartId, cl.ProductId });
+
+            modelBuilder.Entity<Inventory>()
+            .HasKey(inv => new { inv.LocationId, inv.ProductId });
+
+            modelBuilder.Entity<OrderLine>()
+            .HasKey(ol => new { ol.OrderId, ol.ProductId });
+        }
     }
 }
