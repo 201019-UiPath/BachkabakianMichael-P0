@@ -17,7 +17,7 @@ namespace JCUI.Menus
         private LocationServices locationServices;
         private InventoryServices inventoryServices;
         private ProductServices productServices;
-
+        
         public ReplenishInventoryMenu(DBRepo repo) 
         {
             this.locationServices = new LocationServices(repo);
