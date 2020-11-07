@@ -3,6 +3,8 @@ using JCDB;
 using JCDB.Models;
 using JCLib;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace JCUI.Menus
 {
@@ -12,59 +14,42 @@ namespace JCUI.Menus
         private Product selectedProduct;
         private int selectedLocationId;
         private Inventory selectedItem;
-        private Manager validManager;
-        private JCContext context;
-        private ILocationRepo locationRepo;
         private LocationServices locationServices;
-        private IInventoryRepo inventoryRepo;
         private InventoryServices inventoryServices;
-        private IProductRepo productRepo;
         private ProductServices productServices;
 
-        public ReplenishInventoryMenu(Manager manager, JCContext context, ILocationRepo locationRepo, IInventoryRepo inventoryRepo, IProductRepo productRepo) 
+        public ReplenishInventoryMenu(DBRepo repo) 
         {
-            this.validManager = manager;
-            this.context = context;
-            this.locationRepo = locationRepo;
-            this.inventoryRepo = inventoryRepo;
-            this.productRepo = productRepo;
-            this.locationServices = new LocationServices(locationRepo);
-            this.inventoryServices = new InventoryServices(inventoryRepo);
-            this.productServices = new ProductServices(productRepo);
+            this.locationServices = new LocationServices(repo);
+            this.inventoryServices = new InventoryServices(repo);
+            this.productServices = new ProductServices(repo);
         }
 
         public void Start()
         {
-            do {
-                System.Console.WriteLine("Which location do you want to manage: ");
+            //1. get user input
+            //2. validate it as a number
+            //3. match it with existing location id 
+            System.Console.WriteLine("Which location do you want to manage: ");
 
-                List<Location> locations = locationServices.GetAllLocations();
-                foreach(Location location in locations) 
+            List<Location> locations = locationServices.GetAllLocations();
+            foreach(Location location in locations) 
+            {
+                System.Console.WriteLine($"{location.LocationId} {location.LocationName}");
+            }
+            //TODO: validate this input as a number
+            userInput = Console.ReadLine();
+
+            selectedLocationId = Int32.Parse(userInput);
+
+            //TODO: think about giving the user a way out
+            foreach(Location location in locations)
+            {
+                if(selectedLocationId == location.LocationId)
                 {
-                    System.Console.WriteLine($"{location.LocationId} {location.LocationName}");
+                    EditInventory(selectedLocationId);
                 }
-
-                userInput = Console.ReadLine();
-                selectedLocationId = Int32.Parse(userInput);
-
-                switch(userInput) {
-                    case "1":
-                        EditInventory(1);
-                        break;
-                    case "2":
-                        EditInventory(2);
-                        break;
-                    case "3":
-                        EditInventory(3);
-                        break;
-                    case "4":
-                        System.Console.WriteLine("Come back soon!");
-                        break;
-                    default:
-                        System.Console.WriteLine("Put on your glasses and try again");
-                        break;
-                }
-            } while (!userInput.Equals("4"));
+            }
         }
 
         public List<Inventory> GetInventoryForLocation(int locationId) 

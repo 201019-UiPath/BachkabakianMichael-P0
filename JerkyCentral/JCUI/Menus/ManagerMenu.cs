@@ -11,21 +11,16 @@ namespace JCUI.Menus
     public class ManagerMenu:IMenu
     {
         private string userInput;
-        private Manager validManager; //user after their name and pw have been confirmed
-        private IManagerRepo managerRepo;
-        private ILocationRepo locationRepo;
+        private DBRepo repo;
         private ManagerServices managerServices;
         private LocationServices locationServices;
         private ReplenishInventoryMenu replenishInventoryMenu;
         
-        public ManagerMenu(Manager manager, JCContext context, IManagerRepo managerRepo, ILocationRepo locationRepo)
+        public ManagerMenu(DBRepo dBRepo)
         {
-            this.validManager = manager;
-            this.managerRepo = managerRepo;
-            this.locationRepo = locationRepo;
-            this.managerServices = new ManagerServices(managerRepo);
-            this.locationServices = new LocationServices(locationRepo);
-            this.replenishInventoryMenu = new ReplenishInventoryMenu(validManager, context, new DBRepo(context), new DBRepo(context), new DBRepo(context));
+            this.managerServices = new ManagerServices(repo);
+            this.locationServices = new LocationServices(repo);
+            this.replenishInventoryMenu = new ReplenishInventoryMenu(repo);
         }
         public void Start()
         {

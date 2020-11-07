@@ -13,22 +13,20 @@ namespace JCUI.Menus
     {
         private string userInput;
         private User validUser; //user after their name and pw have been confirmed
-        private IUserRepo userRepo;
-        private ILocationRepo locationRepo;
         private UserServices userServices;
         private LocationServices locationServices;
-        private IInventoryRepo inventoryRepo;
         private InventoryServices inventoryServices;
+        private DBRepo repo;
 
 
-        public CustomerMenu(User user, JCContext context, IUserRepo userRepo, ILocationRepo locationRepo)
+        public CustomerMenu(DBRepo dBRepo, User user)
         {
             this.validUser = user;
-            this.userRepo = userRepo;
-            this.locationRepo = locationRepo;
-            this.userServices = new UserServices(userRepo);
-            this.locationServices = new LocationServices(locationRepo);
+            this.userServices = new UserServices(repo);
+            this.locationServices = new LocationServices(repo);
         }
+
+        //1. make a algorithm
         public void Start()
         {
             System.Console.WriteLine("Welcome back to JerkyCentral! What would you like to do?");

@@ -13,27 +13,16 @@ namespace JCUI.Menus
     public class LoginMenu : IMenu
     {
         private string userInput;
-        private User validUser; //user after their name and pw have been confirmed
-        private Manager validManager;
-        private JCContext context;
-        private IUserRepo userRepo;
-        private ILocationRepo locationRepo;
-        private ICartRepo cartRepo;
+        private ManagerServices managerServices;
         private UserServices userServices;
-        private LocationServices locationServices;
-        private CartServices cartServices;
         private ManagerMenu managerMenu;
         private CustomerMenu customerMenu;
+        private DBRepo repo;
 
-        public LoginMenu(JCContext context, IUserRepo userRepo, ILocationRepo locationRepo, ICartRepo cartRepo)
+        public LoginMenu(DBRepo repo)
         {
-            this.context = context;
-            this.userRepo = userRepo;
-            this.locationRepo = locationRepo;
-            this.cartRepo = cartRepo;
-            this.userServices = new UserServices(userRepo);
-            this.locationServices = new LocationServices(locationRepo);
-            this.cartServices = new CartServices(cartRepo);
+            this.managerServices = new ManagerServices(repo);
+            this.userServices = new UserServices(repo);
         }
 
         public void Start() 
@@ -45,15 +34,16 @@ namespace JCUI.Menus
                 System.Console.WriteLine("Press [2] to Sign In As A Manager");
                 System.Console.WriteLine("Press [3] to Exit The Application");
 
-                userInput = Console.ReadLine();
+                userInput = Console.ReadLine().Trim();
 
                 switch (userInput)
                 {
                     case "1":
-                        // User user = CustomerSignIn();
+                        CustomerSignIn();
                         break;
                     case "2":
-                        // Manager manager = ManagerSignIn();
+                        ManagerSignIn();
+                        break;
                     case "3":
                         System.Console.WriteLine("Come back soon!");
                         break;
@@ -65,56 +55,86 @@ namespace JCUI.Menus
             } while(!userInput.Equals("3"));
         }
 
+        public void ManagerSignIn()
+        {
+            string name;
+            string password;
+            Manager manager;
 
-        // public User CustomerSignIn()
-        // {
-        //     string name;
-        //     string password;
-        //     User user = new User();
+            Console.WriteLine("Enter your name: ");
+            name = Console.ReadLine();
 
-        //     Console.WriteLine("Enter your name: ");
-        //     name = Console.ReadLine();
+            while(!InputValidator.ValidateNameInput(name))
+            {
+                Console.WriteLine("Thats not a valid name, try again");
+                Console.WriteLine("Enter your name: ");
+                name = Console.ReadLine();
+            }
 
-        //     Console.WriteLine("Enter your password: ");
-        //     password = Console.ReadLine();
+            manager = managerServices.GetManagerByName(name);
 
-        //     try {
-        //         user = userServices.GetUserByName(name);
-        //         if(user.PassWord != password)
-        //         {
-        //             throw new System.ArgumentException();
-        //         } else 
-        //         {
-        //             validUser = user;
+            Console.WriteLine("Enter your password: ");
+            password = Console.ReadLine();
 
-        //             if(user.ManagerStatus == true)
-        //             {
-        //                 managerMenu = new ManagerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
-        //                 managerMenu.Start();
-        //             } 
-        //             if(user.ManagerStatus == false) 
-        //             {
-        //                 customerMenu = new CustomerMenu(validUser, context, new DBRepo(context), new DBRepo(context));
-                        
+            while (!InputValidator.ValidatePasswordInput(password))
+            {
+                Console.WriteLine("Thats not a valid password, try again");
+                Console.WriteLine("Enter your password: ");
+                password = Console.ReadLine();
+            }
 
-        //                 try{
-        //                     cartServices.DeleteCart(cartServices.GetCartByUserId(validUser.UserID));
-        //                 } catch(InvalidOperationException) {}
-        //                 finally
-        //                 {
-        //                     Cart sessionCart = new Cart();
-        //                     sessionCart.UserId = validUser.UserID;
-        //                     cartServices.AddCart(sessionCart);
-
-        //                     customerMenu.Start();
-        //                 }
-        //             }
-
-        //         }//more logging stuff and a return value around here
-        //     } catch(ArgumentException){}return user;
-
+            while (manager.PassWord != password)
+            {
+                Console.WriteLine("That password is incorrect");
+                //TODO: I could add validation here
+                Console.WriteLine("Enter your password: ");
+                password = Console.ReadLine();
+            }
+                            
+                managerMenu = new ManagerMenu(repo);
+                managerMenu.Start();
             
-        
+        }
 
-    }
+        public void CustomerSignIn()
+        {
+            string name;
+            string password;
+            User user;
+
+            Console.WriteLine("Enter your name: ");
+            name = Console.ReadLine();
+
+            while (!InputValidator.ValidateNameInput(name))
+            {
+                Console.WriteLine("Thats not a valid name, try again");
+                Console.WriteLine("Enter your name: ");
+                name = Console.ReadLine();
+            }
+
+            user = userServices.GetUserByName(name);
+
+            Console.WriteLine("Enter your password: ");
+            password = Console.ReadLine();
+
+            while (!InputValidator.ValidatePasswordInput(password))
+            {
+                Console.WriteLine("Thats not a valid password, try again");
+                Console.WriteLine("Enter your password: ");
+                password = Console.ReadLine();
+            }
+
+            while (user.PassWord != password)
+            {
+                Console.WriteLine("That password is incorrect");
+                //TODO: I could add validation here
+                Console.WriteLine("Enter your password: ");
+                password = Console.ReadLine();
+            }
+
+            customerMenu = new CustomerMenu(repo, user);
+            customerMenu.Start();
+
+        }
+            }
 }

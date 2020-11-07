@@ -9,8 +9,9 @@ namespace JCUI
         static void Main(string[] args)
         {   
             JCContext context = new JCContext();
+            DBRepo dBRepo = new DBRepo(context);
 
-            IMenu LoginMenu = new LoginMenu(context, new DBRepo(context), new DBRepo(context), new DBRepo(context));
+            IMenu LoginMenu = new LoginMenu(dBRepo);
             LoginMenu.Start();       
            
         }
