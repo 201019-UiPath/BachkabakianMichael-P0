@@ -38,12 +38,12 @@ namespace JCDB
 
         public Brand GetBrandById(int id)
         {
-            return (Brand) context.Brands.Single(x => x.BrandId == id);
+            return context.Brands.Single(x => x.BrandId == id);
         }
 
         public Brand GetBrandByName(string name)
         {
-            return (Brand) context.Brands.Single(x => x.BrandName == name);
+            return context.Brands.Single(x => x.BrandName == name);
         }
 
         public List<Brand> GetAllBrands()
@@ -75,12 +75,12 @@ namespace JCDB
 
         public Category GetCategoryById(int id)
         {
-            return (Category) context.Categories.Single(x => x.CategoryId == id);
+            return context.Categories.Single(x => x.CategoryId == id);
         }
 
         public Category GetCategoryByName(string name)
         {
-            return (Category) context.Categories.Single(x => x.CategoryName == name);
+            return context.Categories.Single(x => x.CategoryName == name);
         }
 
         public List<Category> GetAllCategories()
@@ -111,11 +111,11 @@ namespace JCDB
         }
 
         public Inventory GetInventoryByLocationIdProductId(int locationId, int productId) {
-            return (Inventory) context.Inventories.Single(x => x.LocationId == locationId && x.ProductId == productId);
+            return context.Inventories.Single(x => x.LocationId == locationId && x.ProductId == productId);
         }
 
         public List<Inventory> GetAllInventoryItemsByLocationId(int locationId) {
-        return context.Inventories.Select(x => x).Where(x => x.LocationId == locationId).ToList();
+            return context.Inventories.Include("Product").Select(x => x).Where(x => x.LocationId == locationId).ToList();
         }
 
         /// <summary>
@@ -142,12 +142,12 @@ namespace JCDB
 
         public Location GetLocationById(int id)
         {
-            return (Location) context.Locations.Single(x => x.LocationId == id);
+            return context.Locations.Single(x => x.LocationId == id);
         }
 
         public Location GetLocationByName(string name)
         {
-            return (Location) context.Locations.Single(x => x.LocationName == name);
+            return context.Locations.Single(x => x.LocationName == name);
         }
 
         public List<Location> GetAllLocations()
@@ -206,7 +206,7 @@ namespace JCDB
 
         public Order GetOrderById(int id)
         {
-            return (Order) context.Orders.Single(x => x.OrderId == id);
+            return context.Orders.Single(x => x.OrderId == id);
         }
 
         public List<Order> GetAllOrders()
@@ -238,12 +238,12 @@ namespace JCDB
 
         public Product GetProductById(int id)
         {
-            return (Product) context.Products.Single(x => x.ProductId == id);
+            return context.Products.Single(x => x.ProductId == id);
         }
 
         public Product GetProductByName(string name)
         {
-            return (Product) context.Products.Single(x => x.ProductName == name);
+            return context.Products.Single(x => x.ProductName == name);
         }
 
         public List<Product> GetAllProducts()
@@ -275,12 +275,12 @@ namespace JCDB
 
         public User GetUserById(int id)
         {
-            return (User) context.Users.Single(x => x.UserID == id);
+            return context.Users.Single(x => x.UserID == id);
         }
 
         public User GetUserByName(string name)
         {
-            return (User) context.Users.Single(x => x.Name == name);
+            return context.Users.Single(x => x.Name == name);
         }
 
         //old way of determining manager
@@ -318,12 +318,12 @@ namespace JCDB
 
         public Cart GetCartById(int id)
         {
-            return (Cart) context.Carts.Single(x => x.CartId == id);
+            return context.Carts.Single(x => x.CartId == id);
         }
 
         public Cart GetCartByUserId(int id) 
         {
-            return (Cart) context.Carts.Single(x => x.UserId == id);
+            return context.Carts.Single(x => x.UserId == id);
         }
 
         /// <summary>
@@ -377,12 +377,12 @@ namespace JCDB
 
         public Manager GetManagerById(int id)
         {
-            return (Manager) context.Managers.Single(x => x.ManagerID == id);
+            return context.Managers.Single(x => x.ManagerID == id);
         }
 
         public Manager GetManagerByName(string name)
         {
-            return (Manager) context.Managers.Single(x => x.Name == name);
+            return context.Managers.Single(x => x.Name == name);
         }
 
         public List<Manager> GetAllManagers()

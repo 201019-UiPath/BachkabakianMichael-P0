@@ -11,7 +11,6 @@ namespace JCUI.Menus
     public class ReplenishInventoryMenu : IMenu
     {
         private string userInput;
-        private Product selectedProduct;
         private int selectedLocationId;
         private Inventory selectedItem;
         private LocationServices locationServices;

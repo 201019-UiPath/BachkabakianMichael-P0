@@ -11,22 +11,22 @@ namespace JCUI.Menus
     /// </summary>
     public class CustomerMenu : IMenu
     {
-        private string userInput;
-        private User validUser; //user after their name and pw have been confirmed
+        private DBRepo repo;
         private UserServices userServices;
         private LocationServices locationServices;
         private InventoryServices inventoryServices;
-        private DBRepo repo;
+        private ViewLocationInventoryMenu viewLocationInventoryMenu;
 
 
-        public CustomerMenu(DBRepo dBRepo, User user)
+        public CustomerMenu(DBRepo dBRepo)
         {
-            this.validUser = user;
+            this.repo = dBRepo;
+            this.inventoryServices = new InventoryServices(repo);
             this.userServices = new UserServices(repo);
             this.locationServices = new LocationServices(repo);
+            this.viewLocationInventoryMenu = new ViewLocationInventoryMenu(repo);
         }
 
-        //1. make a algorithm
         public void Start()
         {
             System.Console.WriteLine("Welcome back to JerkyCentral! What would you like to do?");
@@ -46,47 +46,15 @@ namespace JCUI.Menus
                     System.Console.WriteLine("You looked at your order history!");
                         break;
                 case "3":
-                    System.Console.WriteLine("For which location? ");
-                    
-                    do {
-                        List<Location> locations = locationServices.GetAllLocations();
-                        foreach(Location location in locations) 
-                        {
-                            System.Console.WriteLine($"{location.LocationId} {location.LocationName}");
-                        }
-
-                        userInput = Console.ReadLine();
-
-                        switch(userInput) {
-                            case "1":
-                                GetInventoryForLocation(1);
-                                break;
-                            case "2":
-                                GetInventoryForLocation(2);
-                                break;
-                            case "3":
-                                GetInventoryForLocation(3);
-                                break;
-                            case "4":
-                                System.Console.WriteLine("Come back soon!");
-                                break;
-                            default:
-                                System.Console.WriteLine("Put on your glasses and try again");
-                                break;
-                        }
-                    } while (!userInput.Equals("4"));
-
+                    viewLocationInventoryMenu.Start();
+                        break;
+                case "4":
+                    Console.WriteLine("Come Back Soon!");
                         break;
                 default:
                     System.Console.WriteLine("your an idiot");
-                    break;
+                        break;
             }
-        }
-
-        public List<Inventory> GetInventoryForLocation(int locationId) 
-        {
-            List<Inventory> items = inventoryServices.GetAllInventoryItemsByLocationId(locationId);
-            return items;
         }
     }
 }

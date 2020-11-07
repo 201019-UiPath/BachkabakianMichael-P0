@@ -19,14 +19,16 @@ namespace JCUI.Menus
         private CustomerMenu customerMenu;
         private DBRepo repo;
 
-        public LoginMenu(DBRepo repo)
+        public LoginMenu(DBRepo DbRepo)
         {
+            this.repo = DbRepo;
             this.managerServices = new ManagerServices(repo);
             this.userServices = new UserServices(repo);
         }
 
         public void Start() 
         {
+            //TODO: customer & manager sign throws an exception if they spell their name wrong, add try cath blocks
             do {
                 System.Console.WriteLine("You've arrived at JerkyCentral! Are you a Customer or a Manager?");
 
@@ -132,7 +134,7 @@ namespace JCUI.Menus
                 password = Console.ReadLine();
             }
 
-            customerMenu = new CustomerMenu(repo, user);
+            customerMenu = new CustomerMenu(repo);
             customerMenu.Start();
 
         }
