@@ -18,13 +18,13 @@ namespace JCUI.Menus
         private ReplenishInventoryMenu replenishInventoryMenu;
         private ViewLocationInventoryMenu viewLocationInventoryMenu;
         
-        public ManagerMenu(DBRepo dBRepo)
+        public ManagerMenu(DBRepo dBRepo, User signedInUser)
         {
             this.repo = dBRepo;
             this.locationServices = new LocationServices(repo);
             this.inventoryServices = new InventoryServices(repo);
             this.replenishInventoryMenu = new ReplenishInventoryMenu(repo);
-            this.viewLocationInventoryMenu = new ViewLocationInventoryMenu(repo);
+            this.viewLocationInventoryMenu = new ViewLocationInventoryMenu(repo, signedInUser);
         }
 
         public void Start()

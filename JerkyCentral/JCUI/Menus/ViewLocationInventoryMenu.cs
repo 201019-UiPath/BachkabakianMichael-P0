@@ -11,73 +11,57 @@ namespace JCUI.Menus
     class ViewLocationInventoryMenu : IMenu
     {
         private int selectedLocationId;
+        private string selectedItem;
+        private string yesorno;
+        private int quantity;
+        private User user;
         private LocationServices locationServices;
         private InventoryServices inventoryServices;
         private ProductServices productServices;
+        private CartLineServices cartLineServices;
+        private CartServices cartServices;
 
-        public ViewLocationInventoryMenu(DBRepo repo)
+        public ViewLocationInventoryMenu(DBRepo repo, User user)
         {
             this.locationServices = new LocationServices(repo);
             this.inventoryServices = new InventoryServices(repo);
             this.productServices = new ProductServices(repo);
+            this.cartLineServices = new CartLineServices(repo);
+            this.cartServices = new CartServices(repo);
+            this.user = user;
         }
 
         public void Start()
         {
-            Console.WriteLine();
-
-            System.Console.WriteLine("Which location do you want to View: ");
-
-            //TODO: Needs validation
-            List<Location> locations = locationServices.GetAllLocations();
-            foreach (Location location in locations)
+            do
             {
-                System.Console.WriteLine($"{location.LocationId} {location.LocationName}");
-            }
+                Console.WriteLine();
 
-            Console.WriteLine();
+                System.Console.WriteLine("Which location do you want to View: ");
 
-            string locationInput = Console.ReadLine();
-            selectedLocationId = Int32.Parse(locationInput);
-
-            Console.WriteLine();
-
-            List<Inventory> CurrentInventory = new List<Inventory>();
-
-            foreach (Location location in locations)
-            {
-                if (selectedLocationId == location.LocationId)
+                //TODO: Needs validation
+                List<Location> locations = locationServices.GetAllLocations();
+                foreach (Location location in locations)
                 {
-                    CurrentInventory = GetInventoryForLocation(selectedLocationId);
+                    System.Console.WriteLine($"{location.LocationId} {location.LocationName}");
                 }
-            }
-
-            foreach (Inventory item in CurrentInventory)
-            {
-                Console.WriteLine($"{item.Product.ProductId} {item.Product.ProductName} {item.QuantityOnHand}");
-            }
-
-            Console.WriteLine();
-
-            //From here on is where the order taking process is implemented
-
-            Console.WriteLine("Do you want to place an order from this location? (Y/N)");
-            string yesorno = Console.ReadLine();
-
-            Console.WriteLine();
-
-            while (!InputValidator.ValidateYesOrNoInput(yesorno))
-            {
-                Console.WriteLine("Thats not a valid input. ");
-                Console.WriteLine("Do you want to place an order from this location? Please enter either 'Y' or 'N' ");
-                yesorno = Console.ReadLine();
-            }
-
-            if (yesorno.Equals("Y") || yesorno.Equals("y"))
-            {
-                Console.WriteLine("Select a product to add to your cart");
 
                 Console.WriteLine();
+
+                string locationInput = Console.ReadLine();
+                selectedLocationId = Int32.Parse(locationInput);
+
+                Console.WriteLine();
+
+                List<Inventory> CurrentInventory = new List<Inventory>();
+
+                foreach (Location location in locations)
+                {
+                    if (selectedLocationId == location.LocationId)
+                    {
+                        CurrentInventory = GetInventoryForLocation(selectedLocationId);
+                    }
+                }
 
                 foreach (Inventory item in CurrentInventory)
                 {
@@ -86,27 +70,69 @@ namespace JCUI.Menus
 
                 Console.WriteLine();
 
-                string selectedItem = Console.ReadLine();
+                //From here on is where the order taking process is implemented
 
-                switch (selectedItem)
+                Console.WriteLine("Do you want to place an order from this location? (Y/N)");
+                yesorno = Console.ReadLine();
+
+                Console.WriteLine();
+
+                while (!InputValidator.ValidateYesOrNoInput(yesorno))
                 {
-                    case "1":
-                        break;
-                    case "2":
-                        break;
-                    case "3":
-                        break;
-                    case "4":
-                        break;
-                    case "5":
-                        break;
-                    case "6":
-                        break;
-                    default:
-                        break;
+                    Console.WriteLine("Thats not a valid input. ");
+                    Console.WriteLine("Do you want to place an order from this location? Please enter either 'Y' or 'N' ");
+                    yesorno = Console.ReadLine();
                 }
-            }
 
+
+                if (yesorno.Equals("Y") || yesorno.Equals("y"))
+                {
+                    do
+                    {
+                        Console.WriteLine("Select a product to add to your cart");
+
+                        Console.WriteLine();
+
+                        foreach (Inventory item in CurrentInventory)
+                        {
+                            Console.WriteLine($"{item.Product.ProductId} {item.Product.ProductName} {item.QuantityOnHand}");
+                        }
+
+                        Console.WriteLine("7 Back\n");
+
+                        selectedItem = Console.ReadLine();
+
+                        Cart cart = cartServices.GetCartByUserId(user.UserID);
+                        CartLine cartLine = new CartLine();
+
+                        switch (selectedItem)
+                        {
+                            case "1":
+                                PopulateCart(1);
+                                break;
+                            case "2":
+                                PopulateCart(2);
+                                break;
+                            case "3":
+                                PopulateCart(3);
+                                break;
+                            case "4":
+                                PopulateCart(4);
+                                break;
+                            case "5":
+                                PopulateCart(5);
+                                break;
+                            case "6":
+                                PopulateCart(6);
+                                break;
+                            case "7":
+                                break;
+                            default:
+                                break;
+                        }
+                    } while (!selectedItem.Equals("7"));
+                }
+            } while (!yesorno.Equals("Y") || !yesorno.Equals("y"));
 
         }
 
@@ -114,6 +140,22 @@ namespace JCUI.Menus
         {
             List<Inventory> items = inventoryServices.GetAllInventoryItemsByLocationId(locationId);
             return items;
+        }
+
+        public void PopulateCart(int prodid)
+        {
+            Product prod = productServices.GetProductById(prodid);
+            Cart cart = cartServices.GetCartByUserId(user.UserID);
+            CartLine cartLine = new CartLine();
+
+            Console.WriteLine("How many do you want to add");
+            quantity = Int32.Parse(Console.ReadLine());
+            cartLine.CartId = cart.CartId;
+            cartLine.Quantity = quantity;
+            cartLine.ProductId = prodid;
+            cartLineServices.AddCartLine(cartLine);
+
+            Console.WriteLine($" You Added {quantity} {prod.ProductName} to your cart");
         }
     }
 }

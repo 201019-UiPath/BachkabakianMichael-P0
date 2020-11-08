@@ -12,19 +12,20 @@ namespace JCUI.Menus
     public class CustomerMenu : IMenu
     {
         private DBRepo repo;
+        private User user;
         private UserServices userServices;
         private LocationServices locationServices;
         private InventoryServices inventoryServices;
         private ViewLocationInventoryMenu viewLocationInventoryMenu;
 
 
-        public CustomerMenu(DBRepo dBRepo)
+        public CustomerMenu(DBRepo dBRepo, User user)
         {
             this.repo = dBRepo;
             this.inventoryServices = new InventoryServices(repo);
             this.userServices = new UserServices(repo);
             this.locationServices = new LocationServices(repo);
-            this.viewLocationInventoryMenu = new ViewLocationInventoryMenu(repo);
+            this.viewLocationInventoryMenu = new ViewLocationInventoryMenu(repo, user);
         }
 
         public void Start()

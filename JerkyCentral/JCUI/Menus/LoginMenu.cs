@@ -13,6 +13,7 @@ namespace JCUI.Menus
     public class LoginMenu : IMenu
     {
         private string userInput;
+        private User signedInUser;
         private ManagerServices managerServices;
         private UserServices userServices;
         private ManagerMenu managerMenu;
@@ -21,6 +22,7 @@ namespace JCUI.Menus
 
         public LoginMenu(DBRepo DbRepo)
         {
+
             this.repo = DbRepo;
             this.managerServices = new ManagerServices(repo);
             this.userServices = new UserServices(repo);
@@ -101,7 +103,7 @@ namespace JCUI.Menus
                 password = Console.ReadLine();
             }
                             
-                managerMenu = new ManagerMenu(repo);
+                managerMenu = new ManagerMenu(repo, signedInUser);
                 managerMenu.Start();
             
         }
@@ -146,7 +148,8 @@ namespace JCUI.Menus
                 password = Console.ReadLine();
             }
 
-            customerMenu = new CustomerMenu(repo);
+            signedInUser = userServices.GetUserByName(name);
+            customerMenu = new CustomerMenu(repo, signedInUser);
             customerMenu.Start();
 
         }
