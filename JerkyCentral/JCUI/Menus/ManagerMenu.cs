@@ -49,6 +49,7 @@ namespace JCUI.Menus
                     break;
                 case "3":
                     Console.WriteLine("Come Back Soon!");
+                    Environment.Exit(0);
                     break;
                 default:
                     System.Console.WriteLine("Put on your glasses and try again");

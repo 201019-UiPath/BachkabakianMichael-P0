@@ -13,10 +13,12 @@ namespace JCUI.Menus
     {
         private DBRepo repo;
         private User user;
+        private Inventory inventory;
         private UserServices userServices;
         private LocationServices locationServices;
         private InventoryServices inventoryServices;
         private ViewLocationInventoryMenu viewLocationInventoryMenu;
+        private PlaceOrderMenu placeOrderMenu;
 
 
         public CustomerMenu(DBRepo dBRepo, User user)
@@ -35,6 +37,7 @@ namespace JCUI.Menus
             System.Console.WriteLine("[1] Place An Order");
             System.Console.WriteLine("[2] View Order History");
             System.Console.WriteLine("[3] View Location Inventory");
+            System.Console.WriteLine("[4] Exit The Store");
 
             Console.WriteLine();
 
@@ -53,6 +56,7 @@ namespace JCUI.Menus
                     break;
                 case "4":
                     Console.WriteLine("Come Back Soon!");
+                    Environment.Exit(0);
                     break;
                 default:
                     System.Console.WriteLine("your an idiot");

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using JCDB.Models;
 
@@ -12,6 +13,7 @@ namespace JCDB
         void UpdateOrder(Order order);
         void DeleteOrder(Order order );
         Order GetOrderById(int id);
+        Order GetOrderByDate(DateTime dt);
         List<Order> GetAllOrders();
     }
 }

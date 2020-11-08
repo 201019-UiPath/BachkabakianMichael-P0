@@ -16,12 +16,17 @@ namespace JCUI.Menus
         private LocationServices locationServices;
         private InventoryServices inventoryServices;
         private ProductServices productServices;
+        private LoginMenu loginMenu;
+        private DBRepo repo;
         
+
         public ReplenishInventoryMenu(DBRepo repo) 
         {
             this.locationServices = new LocationServices(repo);
             this.inventoryServices = new InventoryServices(repo);
             this.productServices = new ProductServices(repo);
+            this.repo = repo;
+            
         }
 
         public void Start()
@@ -29,6 +34,7 @@ namespace JCUI.Menus
             //1. get user input
             //2. validate it as a number
             //3. match it with existing location id 
+            Console.WriteLine();
             System.Console.WriteLine("Which location do you want to manage: ");
 
             List<Location> locations = locationServices.GetAllLocations();
@@ -36,10 +42,15 @@ namespace JCUI.Menus
             {
                 System.Console.WriteLine($"{location.LocationId} {location.LocationName}");
             }
+
+            Console.WriteLine();
+
             //TODO: validate this input as a number
             userInput = Console.ReadLine();
 
             selectedLocationId = Int32.Parse(userInput);
+
+            Console.WriteLine();
 
             //TODO: think about giving the user a way out
             foreach(Location location in locations)
@@ -70,7 +81,13 @@ namespace JCUI.Menus
                     Product product = productServices.GetProductById(item.ProductId);
                     Console.WriteLine($" {product.ProductId} {product.ProductName} {item.QuantityOnHand} ");
                 }
+
+                Console.WriteLine();
+
                 input = Console.ReadLine();
+
+                Console.WriteLine();
+
                 switch(input) 
                 {
                     case "1":
@@ -107,12 +124,19 @@ namespace JCUI.Menus
          public void Replenish(int ProductId) {
             selectedItem = inventoryServices.GetInventoryByLocationIdProductId(selectedLocationId, ProductId);
             Console.WriteLine("Replenish stock by how many items?");
+
+            Console.WriteLine();
+
             int plusStock = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine();
 
             selectedItem.QuantityOnHand = plusStock + selectedItem.QuantityOnHand;
             inventoryServices.UpdateInventory(selectedItem);
 
-            Console.WriteLine("Stock Replenished!");
+            Console.WriteLine("Stock Replenished!\n");
+            this.loginMenu = new LoginMenu(repo);
+            loginMenu.Start();
         }
     }
 }

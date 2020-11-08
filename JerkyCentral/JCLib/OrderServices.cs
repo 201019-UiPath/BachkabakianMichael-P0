@@ -1,5 +1,6 @@
 using JCDB;
 using JCDB.Models;
+using System;
 using System.Collections.Generic;
 
 namespace JCLib
@@ -29,6 +30,13 @@ namespace JCLib
             Order order = repo.GetOrderById(id);
             return order;
         }
+
+        public Order GetOrderByDate(DateTime dt)
+        {
+            Order order = repo.GetOrderByDate(dt);
+            return order;
+        }
+        
         public List<Order> GetAllOrders()
         {
             List<Order> orders = repo.GetAllOrders();

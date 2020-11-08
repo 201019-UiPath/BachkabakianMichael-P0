@@ -16,34 +16,51 @@ namespace JCUI.Menus
         private ProductServices productServices;
         private CartLineServices cartLineServices;
         private CartServices cartServices;
+        private int locationId;
 
-        public PlaceOrderMenu(DBRepo repo, User user)
+        public PlaceOrderMenu(DBRepo repo, User user, int locationId)
         {
             this.orderServices = new OrderServices(repo);
             this.orderLineServices = new OrderLineServices(repo);
+            this.cartServices = new CartServices(repo);
             this.cartLineServices = new CartLineServices(repo);
             this.productServices = new ProductServices(repo);
             this.user = user;
+            this.locationId = locationId;
 
         }
         public void Start()
         {
             //1. make a new order object
-            order = new Order()
-            {
-               UserId = user.UserID 
-               
-            };
+            order = new Order();
+            
+            order.UserId = user.UserID;
+            order.LocationId = locationId;
+            order.OrderDate = DateTime.Now;
 
-            int sessionCartId = user.cart.CartId; 
+            orderServices.AddOrder(order);
+
+            Order order2 = orderServices.GetOrderByDate(order.OrderDate);
 
 
+            Cart cart = cartServices.GetCartByUserId(user.UserID);
+
+            
             //2. convert cartline items to orderline items
-            List<CartLine> sessionItems = cartLineServices.GetAllCartLinesByCart(sessionCartId);
+            List<CartLine> sessionItems = cartLineServices.GetAllCartLinesByCart(cart.CartId);
 
+            foreach (CartLine item in sessionItems)
+            {
+                OrderLine orderLine = new OrderLine();
+                orderLine.OrderId = order2.OrderId;
+                orderLine.ProductId = item.ProductId;
+                orderLine.Quantity = item.Quantity;
+                orderLineServices.AddOrderLine(orderLine);
 
-            //3. add orderline items to order
-            //4. submit order to repo
+                cartLineServices.DeleteCartLine(item);
+            }
+
+            Console.WriteLine("Your order has been placed!\n");
 
         }
     }

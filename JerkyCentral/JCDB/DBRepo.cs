@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using JCDB.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace JCDB
 {
@@ -209,6 +211,11 @@ namespace JCDB
             return context.Orders.Single(x => x.OrderId == id);
         }
 
+        public Order GetOrderByDate(DateTime dt)
+        {
+            return context.Orders.Single(x => x.OrderDate == dt);
+        }
+
         public List<Order> GetAllOrders()
         {
             return context.Orders.Select(x => x).ToList();
@@ -323,7 +330,7 @@ namespace JCDB
 
         public Cart GetCartByUserId(int id) 
         {
-            return context.Carts.Single(x => x.UserId == id);
+            return (Cart) context.Carts.Single(x => x.UserId == id);
         }
 
         /// <summary>

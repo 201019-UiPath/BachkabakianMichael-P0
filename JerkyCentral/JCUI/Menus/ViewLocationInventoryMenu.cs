@@ -20,6 +20,9 @@ namespace JCUI.Menus
         private ProductServices productServices;
         private CartLineServices cartLineServices;
         private CartServices cartServices;
+        private CustomerMenu customerMenu;
+        private DBRepo repo;
+        private PlaceOrderMenu placeOrderMenu;
 
         public ViewLocationInventoryMenu(DBRepo repo, User user)
         {
@@ -29,6 +32,7 @@ namespace JCUI.Menus
             this.cartLineServices = new CartLineServices(repo);
             this.cartServices = new CartServices(repo);
             this.user = user;
+            this.repo = repo;
         }
 
         public void Start()
@@ -50,6 +54,7 @@ namespace JCUI.Menus
 
                 string locationInput = Console.ReadLine();
                 selectedLocationId = Int32.Parse(locationInput);
+
 
                 Console.WriteLine();
 
@@ -84,6 +89,11 @@ namespace JCUI.Menus
                     yesorno = Console.ReadLine();
                 }
 
+                if (yesorno.Equals("N") || yesorno.Equals("n"))
+                {
+                    this.customerMenu = new CustomerMenu(repo, user);
+                    customerMenu.Start();
+                }
 
                 if (yesorno.Equals("Y") || yesorno.Equals("y"))
                 {
@@ -98,9 +108,12 @@ namespace JCUI.Menus
                             Console.WriteLine($"{item.Product.ProductId} {item.Product.ProductName} {item.QuantityOnHand}");
                         }
 
-                        Console.WriteLine("7 Back\n");
+                        Console.WriteLine("7 Checkout");
+                        Console.WriteLine("8 Back\n");
 
                         selectedItem = Console.ReadLine();
+
+                        Console.WriteLine();
 
                         Cart cart = cartServices.GetCartByUserId(user.UserID);
                         CartLine cartLine = new CartLine();
@@ -126,6 +139,14 @@ namespace JCUI.Menus
                                 PopulateCart(6);
                                 break;
                             case "7":
+                                this.placeOrderMenu = new PlaceOrderMenu(repo, user, selectedLocationId);
+                                this.customerMenu = new CustomerMenu(repo, user);
+                                placeOrderMenu.Start();
+                                customerMenu.Start();
+                                break;
+                            case "8":
+                                this.customerMenu = new CustomerMenu(repo, user);
+                                customerMenu.Start();
                                 break;
                             default:
                                 break;
@@ -133,6 +154,7 @@ namespace JCUI.Menus
                     } while (!selectedItem.Equals("7"));
                 }
             } while (!yesorno.Equals("Y") || !yesorno.Equals("y"));
+
 
         }
 
@@ -149,13 +171,16 @@ namespace JCUI.Menus
             CartLine cartLine = new CartLine();
 
             Console.WriteLine("How many do you want to add");
+
+            Console.WriteLine();
+
             quantity = Int32.Parse(Console.ReadLine());
             cartLine.CartId = cart.CartId;
             cartLine.Quantity = quantity;
             cartLine.ProductId = prodid;
             cartLineServices.AddCartLine(cartLine);
 
-            Console.WriteLine($" You Added {quantity} {prod.ProductName} to your cart\n");
+            Console.WriteLine($"You Added {quantity} {prod.ProductName} to your cart\n");
         }
     }
 }

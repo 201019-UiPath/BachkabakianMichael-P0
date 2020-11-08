@@ -29,5 +29,7 @@ namespace JCLib
             List<CartLine> cartLines = repo.GetAllCartLinesByCartId(cartId);
             return cartLines;
         }
+
+        public int LocationId;
     }
 }
