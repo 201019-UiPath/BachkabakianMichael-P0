@@ -216,6 +216,11 @@ namespace JCDB
             return context.Orders.Single(x => x.OrderDate == dt);
         }
 
+        public List<Order> GetOrdersByUserId(int id)
+        {
+            return context.Orders.Where(x => x.UserId == id).ToList();
+        }
+
         public List<Order> GetAllOrders()
         {
             return context.Orders.Select(x => x).ToList();

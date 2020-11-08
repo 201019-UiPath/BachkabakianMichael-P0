@@ -14,6 +14,7 @@ namespace JCDB
         void DeleteOrder(Order order );
         Order GetOrderById(int id);
         Order GetOrderByDate(DateTime dt);
+        List<Order> GetOrdersByUserId(int id);
         List<Order> GetAllOrders();
     }
 }

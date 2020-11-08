@@ -36,7 +36,13 @@ namespace JCLib
             Order order = repo.GetOrderByDate(dt);
             return order;
         }
-        
+
+        public List<Order> GetOrdersByUserId(int id)
+        {
+            List<Order> orders = repo.GetOrdersByUserId(id);
+            return orders;
+        }
+
         public List<Order> GetAllOrders()
         {
             List<Order> orders = repo.GetAllOrders();
