@@ -29,30 +29,31 @@ namespace JCUI.Menus
 
         public void Start()
         {
-            
-                System.Console.WriteLine("Entered Manager Console. What would you like to do?");
+            System.Console.WriteLine("Entered Manager Console. What would you like to do?");
 
-                System.Console.WriteLine("Press [1] to Replenish Inventory");
-                System.Console.WriteLine("Press [2] to View location Inventory");
-                System.Console.WriteLine("Press [3] to Exit The Application");
+            System.Console.WriteLine("Press [1] to Replenish Inventory");
+            System.Console.WriteLine("Press [2] to View location Inventory");
+            System.Console.WriteLine("Press [3] to Exit The Application");
 
-                userInput = Console.ReadLine();
+            Console.WriteLine();    
 
-                switch(userInput)
-                {
-                    case "1":
-                        replenishInventoryMenu.Start();
-                        break;
-                    case "2":
-                        viewLocationInventoryMenu.Start();
-                        break;
-                    case "3":
-                        Console.WriteLine("Come Back Soon!");
-                        break;
-                    default:
-                        System.Console.WriteLine("Put on your glasses and try again");
-                        break;
-                }   
+            userInput = Console.ReadLine();
+
+            switch(userInput)
+            {
+                case "1":
+                    replenishInventoryMenu.Start();
+                    break;
+                case "2":
+                    viewLocationInventoryMenu.Start();
+                    break;
+                case "3":
+                    Console.WriteLine("Come Back Soon!");
+                    break;
+                default:
+                    System.Console.WriteLine("Put on your glasses and try again");
+                    break;
+            }   
         }
     }
 }

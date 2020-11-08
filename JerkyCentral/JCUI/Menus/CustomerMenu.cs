@@ -30,30 +30,32 @@ namespace JCUI.Menus
         public void Start()
         {
             System.Console.WriteLine("Welcome back to JerkyCentral! What would you like to do?");
-            //options
+            
             System.Console.WriteLine("[1] Place An Order");
             System.Console.WriteLine("[2] View Order History");
             System.Console.WriteLine("[3] View Location Inventory");
-            //take input
+
+            Console.WriteLine();
+
             string choice = System.Console.ReadLine();
 
             switch (choice)
             {
                 case "1":
-                    System.Console.WriteLine("You placed an order!");
-                        break;
+                    viewLocationInventoryMenu.Start();
+                    break;
                 case "2":
                     System.Console.WriteLine("You looked at your order history!");
-                        break;
+                    break;
                 case "3":
                     viewLocationInventoryMenu.Start();
-                        break;
+                    break;
                 case "4":
                     Console.WriteLine("Come Back Soon!");
-                        break;
+                    break;
                 default:
                     System.Console.WriteLine("your an idiot");
-                        break;
+                    break;
             }
         }
     }

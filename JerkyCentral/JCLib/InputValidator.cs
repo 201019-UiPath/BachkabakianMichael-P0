@@ -14,6 +14,11 @@ namespace JCLib
             return Regex.IsMatch(password, @"^[^\s]{4,20}$");
         }
 
+        public static bool ValidateYesOrNoInput(string YesOrNo)
+        {
+            return Regex.IsMatch(YesOrNo, @"^[^\d\s]$");
+        }
+
         //public static bool ValidateInputAsNumber(int number)
         //{
         //    return Regex.IsMatch(number, @"^[0-9]{1,3}$");

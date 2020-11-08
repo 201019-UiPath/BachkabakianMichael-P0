@@ -36,7 +36,11 @@ namespace JCUI.Menus
                 System.Console.WriteLine("Press [2] to Sign In As A Manager");
                 System.Console.WriteLine("Press [3] to Exit The Application");
 
+                Console.WriteLine();
+
                 userInput = Console.ReadLine().Trim();
+
+                Console.WriteLine();
 
                 switch (userInput)
                 {
@@ -75,8 +79,12 @@ namespace JCUI.Menus
 
             manager = managerServices.GetManagerByName(name);
 
+            Console.WriteLine();
+
             Console.WriteLine("Enter your password: ");
             password = Console.ReadLine();
+
+            Console.WriteLine();
 
             while (!InputValidator.ValidatePasswordInput(password))
             {
@@ -116,8 +124,12 @@ namespace JCUI.Menus
 
             user = userServices.GetUserByName(name);
 
+            Console.WriteLine();
+
             Console.WriteLine("Enter your password: ");
             password = Console.ReadLine();
+
+            Console.WriteLine();
 
             while (!InputValidator.ValidatePasswordInput(password))
             {
