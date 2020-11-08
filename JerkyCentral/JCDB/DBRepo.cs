@@ -115,7 +115,7 @@ namespace JCDB
         }
 
         public List<Inventory> GetAllInventoryItemsByLocationId(int locationId) {
-            return context.Inventories.Include("Product").Select(x => x).Where(x => x.LocationId == locationId).ToList();
+            return context.Inventories.Include("Product").Where(x => x.LocationId == locationId).ToList();
         }
 
         /// <summary>
@@ -348,11 +348,11 @@ namespace JCDB
             context.SaveChanges();
         }
 
-        public List<CartLine> GetAllCartLinesByCartId(int id)
+        public List<CartLine> GetAllCartLinesByCartId(int cartId)
         {
-            return context.CartLines.Select(x => x).ToList();
+            return context.CartLines.Include("Cart").Where(x => x.CartId == cartId).ToList();
         }
-        
+
         /// <summary>
         /// CRUD methods for managers
         /// </summary>

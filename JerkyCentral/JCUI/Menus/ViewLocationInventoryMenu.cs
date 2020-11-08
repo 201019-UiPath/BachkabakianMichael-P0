@@ -155,7 +155,7 @@ namespace JCUI.Menus
             cartLine.ProductId = prodid;
             cartLineServices.AddCartLine(cartLine);
 
-            Console.WriteLine($" You Added {quantity} {prod.ProductName} to your cart");
+            Console.WriteLine($" You Added {quantity} {prod.ProductName} to your cart\n");
         }
     }
 }
