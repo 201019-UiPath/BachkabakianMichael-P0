@@ -175,6 +175,7 @@ namespace JCUI.Menus
             Console.WriteLine();
 
             quantity = Int32.Parse(Console.ReadLine());
+
             cartLine.CartId = cart.CartId;
             cartLine.Quantity = quantity;
             cartLine.ProductId = prodid;

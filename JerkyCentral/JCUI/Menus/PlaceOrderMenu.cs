@@ -37,6 +37,7 @@ namespace JCUI.Menus
             order.UserId = user.UserID;
             order.LocationId = locationId;
             order.OrderDate = DateTime.Now;
+            
 
             orderServices.AddOrder(order);
 
@@ -45,6 +46,8 @@ namespace JCUI.Menus
 
             Cart cart = cartServices.GetCartByUserId(user.UserID);
 
+            //double totalPrice = 0.00;
+            
             
             //2. convert cartline items to orderline items
             List<CartLine> sessionItems = cartLineServices.GetAllCartLinesByCart(cart.CartId);
@@ -55,10 +58,13 @@ namespace JCUI.Menus
                 orderLine.OrderId = order2.OrderId;
                 orderLine.ProductId = item.ProductId;
                 orderLine.Quantity = item.Quantity;
+                //totalPrice += item.Product.ListPrice * item.Quantity;
                 orderLineServices.AddOrderLine(orderLine);
 
                 cartLineServices.DeleteCartLine(item);
             }
+
+            //order.OrderTotal = totalPrice;
 
             Console.WriteLine("Your order has been placed!\n");
 
