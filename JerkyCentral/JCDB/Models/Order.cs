@@ -9,6 +9,8 @@ namespace JCDB.Models
     {
         public int OrderId { get; set; }
 
+        public double OrderTotal { get; set; }
+
         public int UserId { get; set; }
 
         public int LocationId { get; set; }
