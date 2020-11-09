@@ -4,6 +4,10 @@ namespace JCLib
 {
     public class InputValidator
     {
+        /// <summary>
+        /// These are The Methods That I Use To Validate The Various Kinds Of User Input Thoughout My UI
+        /// </summary>
+        
         public static bool ValidateNameInput(string name)
         {
             return Regex.IsMatch(name, @"^[^\d\s]+$");
@@ -23,10 +27,5 @@ namespace JCLib
         {
             return Regex.IsMatch(digit, @"^[\d]$");
         }
-
-        //public static bool ValidateInputAsNumber(int number)
-        //{
-        //    return Regex.IsMatch(number, @"^[0-9]{1,3}$");
-        //}
     }
 }

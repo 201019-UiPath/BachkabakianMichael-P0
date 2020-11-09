@@ -18,6 +18,10 @@ namespace JCUI.Menus
         private ReplenishInventoryMenu replenishInventoryMenu;
         private ViewLocationInventoryMenu viewLocationInventoryMenu;
         
+        /// <summary>
+        /// Manager Menu Constructor
+        /// </summary>
+
         public ManagerMenu(DBRepo dBRepo, User signedInUser)
         {
             this.repo = dBRepo;
@@ -26,6 +30,10 @@ namespace JCUI.Menus
             this.replenishInventoryMenu = new ReplenishInventoryMenu(repo);
             this.viewLocationInventoryMenu = new ViewLocationInventoryMenu(repo, signedInUser);
         }
+
+        /// <summary>
+        /// Starting Point Of My Manager Menu
+        /// </summary>
 
         public void Start()
         {

@@ -6,6 +6,9 @@ namespace JCLib
 {
     public class InventoryServices
     {
+        /// <summary>
+        /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My Inventory Related Business Logic Like Adding Updating Deleting Or Getting Inventory Items
+        /// </summary>
         private IInventoryRepo repo;
 
         public InventoryServices(IInventoryRepo repo)

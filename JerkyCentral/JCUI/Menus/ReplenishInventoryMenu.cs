@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace JCUI.Menus
 {
+    /// <summary>
+    /// Menu That Is Displayed To A Manager When They Want To Replenish The Inventory Of A Selected Location
+    /// </summary>
+
     public class ReplenishInventoryMenu : IMenu
     {
         private string userInput;
@@ -19,6 +23,9 @@ namespace JCUI.Menus
         private LoginMenu loginMenu;
         private DBRepo repo;
         
+        /// <summary>
+        /// Replenish Inventory Menu Constructor
+        /// </summary>
 
         public ReplenishInventoryMenu(DBRepo repo) 
         {
@@ -29,11 +36,12 @@ namespace JCUI.Menus
             
         }
 
+        /// <summary>
+        /// Starting Point Of My Replenish Inventory Menu
+        /// </summary>
+
         public void Start()
         {
-            //1. get user input
-            //2. validate it as a number
-            //3. match it with existing location id 
             Console.WriteLine();
             System.Console.WriteLine("Which location do you want to manage: ");
 
@@ -45,14 +53,12 @@ namespace JCUI.Menus
 
             Console.WriteLine();
 
-            //TODO: validate this input as a number
             userInput = Console.ReadLine();
 
             selectedLocationId = Int32.Parse(userInput);
 
             Console.WriteLine();
 
-            //TODO: think about giving the user a way out
             foreach(Location location in locations)
             {
                 if(selectedLocationId == location.LocationId)
@@ -62,11 +68,19 @@ namespace JCUI.Menus
             }
         }
 
+        /// <summary>
+        /// Function That Gets All Inventory Items For A Selected Location
+        /// </summary>
+
         public List<Inventory> GetInventoryForLocation(int locationId) 
         {
             List<Inventory> items = inventoryServices.GetAllInventoryItemsByLocationId(locationId);
             return items;
         }
+
+        /// <summary>
+        /// Function That Allows The Manager To Replenish The Stock Of A Specific Product At The Selected Location
+        /// </summary>
 
         public void EditInventory(int locationId)
         {
@@ -120,6 +134,10 @@ namespace JCUI.Menus
             } while(!input.Equals("6"));
 
         }
+
+        /// <summary>
+        /// Function That Actually Does The Re-Stocking Of A Product
+        /// </summary>
 
          public void Replenish(int ProductId) {
             selectedItem = inventoryServices.GetInventoryByLocationIdProductId(selectedLocationId, ProductId);

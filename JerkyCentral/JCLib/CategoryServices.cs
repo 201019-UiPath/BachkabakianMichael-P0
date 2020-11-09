@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace JCLib
 {
+    /// <summary>
+    /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My Category Related Business Logic Like Adding Updating Deleting Or Getting Categories
+    /// </summary>
     public class CategoryServices
     {
         private ICategoryRepo repo;

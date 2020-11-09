@@ -8,6 +8,10 @@ using System.Text;
 
 namespace JCUI.Menus
 {
+    /// <summary>
+    /// Menu That Is Used To Actually Place A Order
+    /// </summary>
+    
     class PlaceOrderMenu : IMenu
     {
         private User user;
@@ -18,6 +22,10 @@ namespace JCUI.Menus
         private CartLineServices cartLineServices;
         private CartServices cartServices;
         private int locationId;
+
+        /// <summary>
+        /// Place Order Menu Constructor
+        /// </summary>
 
         public PlaceOrderMenu(DBRepo repo, User user, int locationId)
         {
@@ -30,27 +38,24 @@ namespace JCUI.Menus
             this.locationId = locationId;
 
         }
+
+        /// <summary>
+        /// Starting Point Of The Place Order Menu
+        /// </summary>
+
         public void Start()
         {
-            //1. make order object
+            
             order = new Order();
             
             order.UserId = user.UserID;
             order.LocationId = locationId;
             order.OrderDate = DateTime.Now;
 
-
-           
-
-            //Order order2 = orderServices.GetOrderByDate(order.OrderDate);
-
-
             Cart cart = cartServices.GetCartByUserId(user.UserID);
 
             double totalPrice = 0.00;
             
-            
-            //2. convert cartline items to orderline items
             List<CartLine> sessionItems = cartLineServices.GetAllCartLinesByCart(cart.CartId);
 
             foreach (CartLine item in sessionItems)

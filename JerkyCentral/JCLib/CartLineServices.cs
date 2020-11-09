@@ -6,6 +6,9 @@ namespace JCLib
 {
     public class CartLineServices
     {
+        /// <summary>
+        /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My CartLine Related Business Logic Like Adding Updating Deleting Or Getting CartLines
+        /// </summary>
         private ICartLineRepo repo;
 
         public CartLineServices(ICartLineRepo repo)

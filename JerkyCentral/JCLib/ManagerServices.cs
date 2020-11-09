@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace JCLib
 {
+    /// <summary>
+    /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My Manager Related Business Logic Like Adding Updating Deleting Or Getting Managers
+    /// </summary>
     public class ManagerServices
     {
         private IManagerRepo repo;

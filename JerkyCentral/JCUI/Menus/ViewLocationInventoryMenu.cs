@@ -8,6 +8,11 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace JCUI.Menus
 {
+
+    /// <summary>
+    /// Menu That Is Used For Both Viewing A Locations Inventory As Well As Populating A Users Cart To Prep For Order Placement 
+    /// </summary>
+
     class ViewLocationInventoryMenu : IMenu
     {
         private int selectedLocationId;
@@ -24,6 +29,10 @@ namespace JCUI.Menus
         private DBRepo repo;
         private PlaceOrderMenu placeOrderMenu;
 
+        /// <summary>
+        /// Constructor For The View Location Inventory Menu
+        /// </summary>
+
         public ViewLocationInventoryMenu(DBRepo repo, User user)
         {
             this.locationServices = new LocationServices(repo);
@@ -34,6 +43,10 @@ namespace JCUI.Menus
             this.user = user;
             this.repo = repo;
         }
+
+        /// <summary>
+        /// Starting Point Of My View Location Inventory Menu
+        /// </summary>
 
         public void Start()
         {
@@ -158,11 +171,19 @@ namespace JCUI.Menus
 
         }
 
+        /// <summary>
+        /// Function That Gets All Inventory Items For A Selected Location
+        /// </summary>
+
         public List<Inventory> GetInventoryForLocation(int locationId)
         {
             List<Inventory> items = inventoryServices.GetAllInventoryItemsByLocationId(locationId);
             return items;
         }
+
+        /// <summary>
+        /// Function That Is Used To Populate The Customers Cart With The Products They Have Selected Earlier
+        /// </summary>
 
         public void PopulateCart(int prodid)
         {

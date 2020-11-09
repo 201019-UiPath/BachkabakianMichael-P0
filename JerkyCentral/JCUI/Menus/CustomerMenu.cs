@@ -22,6 +22,10 @@ namespace JCUI.Menus
         private ViewOrderHistoryMenu viewOrderHistoryMenu;
 
 
+        /// <summary>
+        /// Customer Menu Constructor
+        /// </summary>
+
         public CustomerMenu(DBRepo dBRepo, User user)
         {
             this.repo = dBRepo;
@@ -32,6 +36,9 @@ namespace JCUI.Menus
             this.viewOrderHistoryMenu = new ViewOrderHistoryMenu(repo, user);
         }
 
+        /// <summary>
+        /// Starting Point Of My Customer Menu Function
+        /// </summary>
         public void Start()
         {
             System.Console.WriteLine("Welcome back to JerkyCentral! What would you like to do?");

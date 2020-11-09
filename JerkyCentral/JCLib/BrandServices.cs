@@ -6,6 +6,9 @@ namespace JCLib
 {
     public class BrandServices
     {
+        /// <summary>
+        /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My Brand Related Business Logic Like Adding Updating Deleting Or Getting Brands 
+        /// </summary>
         private IBrandRepo repo;
 
         public BrandServices(IBrandRepo repo)

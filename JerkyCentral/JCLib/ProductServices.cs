@@ -6,6 +6,9 @@ namespace JCLib
 {
     public class ProductServices
     {
+        /// <summary>
+        /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My Product Related Business Logic Like Adding Updating Deleting Or Getting Products
+        /// </summary>
         private IProductRepo repo;
 
         public ProductServices(IProductRepo repo)

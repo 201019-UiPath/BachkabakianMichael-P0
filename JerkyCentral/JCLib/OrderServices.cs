@@ -7,6 +7,9 @@ namespace JCLib
 {
     public class OrderServices
     {
+        /// <summary>
+        /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My Order Related Business Logic Like Adding Updating Deleting Or Getting Orders
+        /// </summary>
         private IOrderRepo repo;
 
         public OrderServices(IOrderRepo repo)

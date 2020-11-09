@@ -6,6 +6,9 @@ namespace JCLib
 {
     public class UserServices
     {
+        /// <summary>
+        /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My User Related Business Logic Like Adding Updating Deleting Or Getting Users
+        /// </summary>
         private IUserRepo repo;
 
         public UserServices(IUserRepo repo) 

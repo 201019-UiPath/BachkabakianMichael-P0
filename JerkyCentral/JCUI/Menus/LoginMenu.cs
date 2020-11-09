@@ -4,10 +4,10 @@ using JCDB.Models;
 using JCLib;
 using System.Collections.Generic;
 using Serilog;
-//using statements for menus.customer menu & menus.manager menu
-//serilog stuff
 
-
+/// <summary>
+/// Initial Menu That Is Displayed To A User When They Run The Program
+/// </summary>
 
 namespace JCUI.Menus
 {
@@ -21,6 +21,10 @@ namespace JCUI.Menus
         private CustomerMenu customerMenu;
         private DBRepo repo;
 
+        /// <summary>
+        /// Login Menu Constructor
+        /// </summary>
+
         public LoginMenu(DBRepo DbRepo)
         {
 
@@ -28,6 +32,10 @@ namespace JCUI.Menus
             this.managerServices = new ManagerServices(repo);
             this.userServices = new UserServices(repo);
         }
+
+        /// <summary>
+        /// Starting Point Of My Login Menu
+        /// </summary>
 
         public void Start() 
         {
@@ -64,6 +72,10 @@ namespace JCUI.Menus
 
             } while(!userInput.Equals("3"));
         }
+
+        /// <summary>
+        /// Function That Is Used To Allow A Manager To Sign Into The Manager Console
+        /// </summary>
 
         public void ManagerSignIn()
         {
@@ -106,7 +118,6 @@ namespace JCUI.Menus
             while (manager.PassWord != password)
             {
                 Console.WriteLine("That password is incorrect");
-                //TODO: I could add validation here
                 Console.WriteLine("Enter your password: ");
                 password = Console.ReadLine();
             }
@@ -114,9 +125,11 @@ namespace JCUI.Menus
                 managerMenu = new ManagerMenu(repo, signedInUser);
                 Log.Logger.Information("Manager is Signed In");
                 managerMenu.Start();
-
-            
         }
+
+        /// <summary>
+        /// Function That Is Used To Allow A Customer To Sign Into The Manager Console
+        /// </summary>
 
         public void CustomerSignIn()
         {
@@ -160,7 +173,6 @@ namespace JCUI.Menus
             while (user.PassWord != password)
             {
                 Console.WriteLine("That password is incorrect");
-                //TODO: I could add validation here
                 Console.WriteLine("Enter your password: ");
                 password = Console.ReadLine();
             }

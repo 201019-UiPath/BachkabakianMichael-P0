@@ -8,6 +8,10 @@ using System.Linq;
 
 namespace JCUI.Menus
 {
+    /// <summary>
+    /// Menu That Allows A Customer To View Their Order History
+    /// </summary>
+
     class ViewOrderHistoryMenu : IMenu
     {
         private DBRepo repo;
@@ -15,12 +19,20 @@ namespace JCUI.Menus
         private OrderServices orderServices;
         private CustomerMenu customerMenu;
 
+        /// <summary>
+        /// Constructor For The View Order History Menu
+        /// </summary>
+
         public ViewOrderHistoryMenu(DBRepo dbRepo, User user)
         {
             this.repo = dbRepo;
             this.orderServices = new OrderServices(repo);
             this.user = user;
         }
+
+        /// <summary>
+        /// Starting Point For The View Order History Menu. This Will Create Ascending and Descending Order Lists For A Customers Order History
+        /// </summary>
 
         public void Start()
         {

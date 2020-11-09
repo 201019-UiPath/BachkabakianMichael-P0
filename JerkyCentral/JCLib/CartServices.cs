@@ -3,6 +3,9 @@ using JCDB.Models;
 
 namespace JCLib
 {
+    /// <summary>
+    /// These Are The Methods That Connect With The DBRepo and Allow Me To Use My Cart Related Business Logic Like Adding Updating Deleting Or Getting Carts
+    /// </summary>
     public class CartServices
     {
         private ICartRepo repo;
