@@ -27,5 +27,10 @@ namespace JCLib
         {
             return Regex.IsMatch(digit, @"^[\d]$");
         }
+
+        public static bool ValidateEmailInput(string email)
+        {
+            return Regex.IsMatch(email, @"^[A-Za-z0-9]{3,20}@[A-Za-z]{3,10}.(com|net|org)$");
+        }
     }
 }
