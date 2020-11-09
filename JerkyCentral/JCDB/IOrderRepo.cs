@@ -15,6 +15,7 @@ namespace JCDB
         Order GetOrderById(int id);
         Order GetOrderByDate(DateTime dt);
         List<Order> GetOrdersByUserId(int id);
+        List<Order> GetOrdersByLocationId(int id);
         List<Order> GetAllOrders();
     }
 }

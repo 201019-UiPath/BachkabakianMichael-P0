@@ -221,6 +221,11 @@ namespace JCDB
             return context.Orders.Where(x => x.UserId == id).ToList();
         }
 
+        public List<Order> GetOrdersByLocationId(int id)
+        {
+            return context.Orders.Where(x => x.LocationId == id).ToList();
+        }
+
         public List<Order> GetAllOrders()
         {
             return context.Orders.Select(x => x).ToList();

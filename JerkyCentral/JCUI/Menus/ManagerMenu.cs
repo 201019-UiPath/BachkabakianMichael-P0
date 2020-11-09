@@ -17,7 +17,8 @@ namespace JCUI.Menus
         private InventoryServices inventoryServices;
         private ReplenishInventoryMenu replenishInventoryMenu;
         private ViewLocationInventoryMenu viewLocationInventoryMenu;
-        
+        private ViewOrderHistoryByLocationMenu viewOrderHistoryByLocation;
+
         /// <summary>
         /// Manager Menu Constructor
         /// </summary>
@@ -29,6 +30,7 @@ namespace JCUI.Menus
             this.inventoryServices = new InventoryServices(repo);
             this.replenishInventoryMenu = new ReplenishInventoryMenu(repo);
             this.viewLocationInventoryMenu = new ViewLocationInventoryMenu(repo, signedInUser);
+            this.viewOrderHistoryByLocation = new ViewOrderHistoryByLocationMenu(repo);
         }
 
         /// <summary>
@@ -41,7 +43,8 @@ namespace JCUI.Menus
             System.Console.WriteLine("---------------------------------------------------");
             System.Console.WriteLine("Press [1] to Replenish Inventory");
             System.Console.WriteLine("Press [2] to View location Inventory");
-            System.Console.WriteLine("Press [3] to Exit The Application");
+            System.Console.WriteLine("Press [3] to View Order History By Location");
+            System.Console.WriteLine("Press [4] to Exit The Application");
 
             Console.WriteLine();    
 
@@ -56,6 +59,9 @@ namespace JCUI.Menus
                     viewLocationInventoryMenu.Start();
                     break;
                 case "3":
+                    viewOrderHistoryByLocation.Start();
+                    break;
+                case "4":
                     Console.WriteLine("Come Back Soon!");
                     Environment.Exit(0);
                     break;

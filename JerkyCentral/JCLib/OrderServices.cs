@@ -46,6 +46,12 @@ namespace JCLib
             return orders;
         }
 
+        public List<Order> GetOrdersByLocationId(int id)
+        {
+            List<Order> orders = repo.GetOrdersByLocationId(id);
+            return orders;
+        }
+
         public List<Order> GetAllOrders()
         {
             List<Order> orders = repo.GetAllOrders();
