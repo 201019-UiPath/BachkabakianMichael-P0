@@ -19,6 +19,11 @@ namespace JCLib
             return Regex.IsMatch(YesOrNo, @"^[^\d\s]$");
         }
 
+        public static bool ValidateDigitInput(string digit)
+        {
+            return Regex.IsMatch(digit, @"^[\d]$");
+        }
+
         //public static bool ValidateInputAsNumber(int number)
         //{
         //    return Regex.IsMatch(number, @"^[0-9]{1,3}$");

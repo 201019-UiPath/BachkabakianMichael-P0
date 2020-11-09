@@ -19,6 +19,7 @@ namespace JCUI.Menus
         private InventoryServices inventoryServices;
         private ViewLocationInventoryMenu viewLocationInventoryMenu;
         private PlaceOrderMenu placeOrderMenu;
+        private ViewOrderHistoryMenu viewOrderHistoryMenu;
 
 
         public CustomerMenu(DBRepo dBRepo, User user)
@@ -28,6 +29,7 @@ namespace JCUI.Menus
             this.userServices = new UserServices(repo);
             this.locationServices = new LocationServices(repo);
             this.viewLocationInventoryMenu = new ViewLocationInventoryMenu(repo, user);
+            this.viewOrderHistoryMenu = new ViewOrderHistoryMenu(repo, user);
         }
 
         public void Start()
@@ -49,7 +51,7 @@ namespace JCUI.Menus
                     viewLocationInventoryMenu.Start();
                     break;
                 case "2":
-                    System.Console.WriteLine("You looked at your order history!");
+                    viewOrderHistoryMenu.Start();
                     break;
                 case "3":
                     viewLocationInventoryMenu.Start();

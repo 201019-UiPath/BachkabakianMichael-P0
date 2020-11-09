@@ -3,6 +3,7 @@ using JCDB;
 using JCDB.Models;
 using JCLib;
 using System.Collections.Generic;
+using Serilog;
 //using statements for menus.customer menu & menus.manager menu
 //serilog stuff
 
@@ -79,9 +80,15 @@ namespace JCUI.Menus
                 Console.WriteLine("Enter your name: ");
                 name = Console.ReadLine();
             }
-
-            manager = managerServices.GetManagerByName(name);
-
+            try
+            {
+                manager = managerServices.GetManagerByName(name);
+            } catch (Exception e)
+            {
+                Console.WriteLine("That name was not found in the manager database");
+                Console.WriteLine();
+                return;
+            }
             Console.WriteLine();
 
             Console.WriteLine("Enter your password: ");
@@ -105,7 +112,9 @@ namespace JCUI.Menus
             }
                             
                 managerMenu = new ManagerMenu(repo, signedInUser);
+                Log.Logger.Information("Manager is Signed In");
                 managerMenu.Start();
+
             
         }
 
@@ -125,8 +134,15 @@ namespace JCUI.Menus
                 name = Console.ReadLine();
             }
 
-            user = userServices.GetUserByName(name);
-
+            try
+            {
+                user = userServices.GetUserByName(name);
+            } catch (Exception e)
+            {
+                Console.WriteLine("That name was not found in the customer database");
+                Console.WriteLine();
+                return;
+            }
             Console.WriteLine();
 
             Console.WriteLine("Enter your password: ");
@@ -151,6 +167,7 @@ namespace JCUI.Menus
 
             signedInUser = userServices.GetUserByName(name);
             customerMenu = new CustomerMenu(repo, signedInUser);
+            Log.Logger.Information("Customer is Signed In");
             customerMenu.Start();
 
         }
