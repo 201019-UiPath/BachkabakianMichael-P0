@@ -48,6 +48,7 @@ namespace JCUI.Menus
             Console.WriteLine();
 
             Console.WriteLine("How Do You Want To Sort The Orders?");
+            Console.WriteLine("-----------------------------------");
 
             System.Console.WriteLine("[1] By Order Date");
             System.Console.WriteLine("[2] By Order Total Price");
@@ -62,6 +63,7 @@ namespace JCUI.Menus
             {
                 Console.WriteLine("Thats not a valid input. ");
                 Console.WriteLine("Please enter either [1] or [2] ");
+                Console.WriteLine("-------------------------------");
                 userInput = Console.ReadLine();
             }
 
@@ -69,6 +71,7 @@ namespace JCUI.Menus
             {
                 case "1":
                     Console.WriteLine("Do You Want To Sort Them By Date with Ascending Order or Descending Order?");
+                    Console.WriteLine("--------------------------------------------------------------------------");
 
                     System.Console.WriteLine("[1] Ascending Date Order");
                     System.Console.WriteLine("[2] Descending Date Order");
@@ -83,6 +86,7 @@ namespace JCUI.Menus
                     {
                         Console.WriteLine("Thats not a valid input. ");
                         Console.WriteLine("Please enter either [1] or [2] ");
+                        Console.WriteLine("-------------------------------");
                         dateSortTypeInput = Console.ReadLine();
                     }
 
@@ -109,6 +113,7 @@ namespace JCUI.Menus
                     break;
                 case "2":
                     Console.WriteLine("Do You Want To Sort Them By Total Price with Ascending Order or Descending Order?");
+                    Console.WriteLine("---------------------------------------------------------------------------------");
 
                     System.Console.WriteLine("[1] Ascending Total Price Order");
                     System.Console.WriteLine("[2] Descending Total Price Order");
@@ -122,7 +127,8 @@ namespace JCUI.Menus
                     while (!InputValidator.ValidateDigitInput(priceSortTypeInput))
                     {
                         Console.WriteLine("Thats not a valid input. ");
-                        Console.WriteLine("Please enter either [1] or [2] ");
+                        Console.WriteLine("Please enter either [1] or [2]");
+                        Console.WriteLine("------------------------------");
                         priceSortTypeInput = Console.ReadLine();
                     }
 

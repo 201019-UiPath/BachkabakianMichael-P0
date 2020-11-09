@@ -54,7 +54,8 @@ namespace JCUI.Menus
             {
                 Console.WriteLine();
 
-                System.Console.WriteLine("Which location do you want to View: ");
+                System.Console.WriteLine("Which location do you want to View:");
+                System.Console.WriteLine("-----------------------------------");
 
                 //TODO: Needs validation
                 List<Location> locations = locationServices.GetAllLocations();
@@ -91,6 +92,7 @@ namespace JCUI.Menus
                 //From here on is where the order taking process is implemented
 
                 Console.WriteLine("Do you want to place an order from this location? (Y/N)");
+                System.Console.WriteLine("------------------------------------------------");
                 yesorno = Console.ReadLine();
 
                 Console.WriteLine();
@@ -98,7 +100,8 @@ namespace JCUI.Menus
                 while (!InputValidator.ValidateYesOrNoInput(yesorno))
                 {
                     Console.WriteLine("Thats not a valid input. ");
-                    Console.WriteLine("Do you want to place an order from this location? Please enter either 'Y' or 'N' ");
+                    Console.WriteLine("Do you want to place an order from this location? Please enter either 'Y' or 'N'");
+                    Console.WriteLine("--------------------------------------------------------------------------------");
                     yesorno = Console.ReadLine();
                 }
 
@@ -113,6 +116,7 @@ namespace JCUI.Menus
                     do
                     {
                         Console.WriteLine("Select a product to add to your cart");
+                        Console.WriteLine("------------------------------------");
 
                         Console.WriteLine();
 
@@ -192,6 +196,7 @@ namespace JCUI.Menus
             CartLine cartLine = new CartLine();
 
             Console.WriteLine("How many do you want to add");
+            Console.WriteLine("---------------------------");
 
             Console.WriteLine();
 
@@ -202,7 +207,8 @@ namespace JCUI.Menus
             cartLine.ProductId = prodid;
             cartLineServices.AddCartLine(cartLine);
 
-            Console.WriteLine($"You Added {quantity} {prod.ProductName} to your cart\n");
+            Console.WriteLine($"You Added {quantity} {prod.ProductName} to your cart");
+            Console.WriteLine("-----------------------------------------------------");
         }
     }
 }

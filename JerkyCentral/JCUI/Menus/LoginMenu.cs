@@ -42,7 +42,7 @@ namespace JCUI.Menus
             //TODO: customer & manager sign throws an exception if they spell their name wrong, add try cath blocks
             do {
                 System.Console.WriteLine("You've arrived at JerkyCentral! Are you a Customer or a Manager?");
-
+                System.Console.WriteLine("----------------------------------------------------------------");
                 System.Console.WriteLine("Press [1] to Sign In As A Customer");
                 System.Console.WriteLine("Press [2] to Sign In As A Manager");
                 System.Console.WriteLine("Press [3] to Exit The Application");
@@ -84,12 +84,14 @@ namespace JCUI.Menus
             Manager manager;
 
             Console.WriteLine("Enter your name: ");
+            Console.WriteLine("-----------------");
             name = Console.ReadLine();
 
             while(!InputValidator.ValidateNameInput(name))
             {
                 Console.WriteLine("Thats not a valid name, try again");
                 Console.WriteLine("Enter your name: ");
+                Console.WriteLine("-----------------");
                 name = Console.ReadLine();
             }
             try
@@ -103,7 +105,8 @@ namespace JCUI.Menus
             }
             Console.WriteLine();
 
-            Console.WriteLine("Enter your password: ");
+            Console.WriteLine("Enter your password:");
+            Console.WriteLine("--------------------");
             password = Console.ReadLine();
 
             Console.WriteLine();
@@ -111,14 +114,16 @@ namespace JCUI.Menus
             while (!InputValidator.ValidatePasswordInput(password))
             {
                 Console.WriteLine("Thats not a valid password, try again");
-                Console.WriteLine("Enter your password: ");
+                Console.WriteLine("Enter your password:");
+                Console.WriteLine("--------------------");
                 password = Console.ReadLine();
             }
 
             while (manager.PassWord != password)
             {
                 Console.WriteLine("That password is incorrect");
-                Console.WriteLine("Enter your password: ");
+                Console.WriteLine("Enter your password:");
+                Console.WriteLine("--------------------");
                 password = Console.ReadLine();
             }
                             
@@ -138,12 +143,14 @@ namespace JCUI.Menus
             User user;
 
             Console.WriteLine("Enter your name: ");
+            Console.WriteLine("-----------------");
             name = Console.ReadLine();
 
             while (!InputValidator.ValidateNameInput(name))
             {
                 Console.WriteLine("Thats not a valid name, try again");
                 Console.WriteLine("Enter your name: ");
+                Console.WriteLine("-----------------");
                 name = Console.ReadLine();
             }
 
@@ -158,7 +165,8 @@ namespace JCUI.Menus
             }
             Console.WriteLine();
 
-            Console.WriteLine("Enter your password: ");
+            Console.WriteLine("Enter your password:");
+            Console.WriteLine("--------------------");
             password = Console.ReadLine();
 
             Console.WriteLine();
@@ -166,14 +174,16 @@ namespace JCUI.Menus
             while (!InputValidator.ValidatePasswordInput(password))
             {
                 Console.WriteLine("Thats not a valid password, try again");
-                Console.WriteLine("Enter your password: ");
+                Console.WriteLine("Enter your password:");
+                Console.WriteLine("--------------------");
                 password = Console.ReadLine();
             }
 
             while (user.PassWord != password)
             {
                 Console.WriteLine("That password is incorrect");
-                Console.WriteLine("Enter your password: ");
+                Console.WriteLine("Enter your password:");
+                Console.WriteLine("--------------------");
                 password = Console.ReadLine();
             }
 

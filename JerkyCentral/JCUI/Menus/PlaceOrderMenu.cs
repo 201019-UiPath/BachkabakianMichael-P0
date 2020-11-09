@@ -76,7 +76,8 @@ namespace JCUI.Menus
 
             Log.Logger.Information("A Order was Placed");
 
-            Console.WriteLine("Your order has been placed!\n");
+            Console.WriteLine("Your order has been placed!");
+            Console.WriteLine("---------------------------");
 
         }
     }

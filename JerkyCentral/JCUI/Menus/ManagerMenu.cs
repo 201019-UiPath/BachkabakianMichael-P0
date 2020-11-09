@@ -38,7 +38,7 @@ namespace JCUI.Menus
         public void Start()
         {
             System.Console.WriteLine("Entered Manager Console. What would you like to do?");
-
+            System.Console.WriteLine("---------------------------------------------------");
             System.Console.WriteLine("Press [1] to Replenish Inventory");
             System.Console.WriteLine("Press [2] to View location Inventory");
             System.Console.WriteLine("Press [3] to Exit The Application");

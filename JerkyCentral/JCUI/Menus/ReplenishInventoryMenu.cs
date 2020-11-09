@@ -43,7 +43,8 @@ namespace JCUI.Menus
         public void Start()
         {
             Console.WriteLine();
-            System.Console.WriteLine("Which location do you want to manage: ");
+            System.Console.WriteLine("Which location do you want to manage:");
+            System.Console.WriteLine("-------------------------------------");
 
             List<Location> locations = locationServices.GetAllLocations();
             foreach(Location location in locations) 
@@ -87,7 +88,8 @@ namespace JCUI.Menus
             string input;
 
             do {
-                System.Console.WriteLine("Which item do you want to replenish? ");
+                System.Console.WriteLine("Which item do you want to replenish?");
+                System.Console.WriteLine("------------------------------------");
 
                 List<Inventory> items = GetInventoryForLocation(locationId);
                 foreach(Inventory item in items) 
@@ -142,6 +144,7 @@ namespace JCUI.Menus
          public void Replenish(int ProductId) {
             selectedItem = inventoryServices.GetInventoryByLocationIdProductId(selectedLocationId, ProductId);
             Console.WriteLine("Replenish stock by how many items?");
+            Console.WriteLine("----------------------------------");
 
             Console.WriteLine();
 

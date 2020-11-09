@@ -42,7 +42,7 @@ namespace JCUI.Menus
         public void Start()
         {
             System.Console.WriteLine("Welcome back to JerkyCentral! What would you like to do?");
-            
+            System.Console.WriteLine("--------------------------------------------------------");
             System.Console.WriteLine("[1] Place An Order");
             System.Console.WriteLine("[2] View Order History");
             System.Console.WriteLine("[3] View Location Inventory");
